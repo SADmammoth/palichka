@@ -1,0 +1,516 @@
+# Translation of Plugins - Meta Box &#8211; WordPress Custom Fields Framework - Stable (latest release) in Russian
+# This file is distributed under the same license as the Plugins - Meta Box &#8211; WordPress Custom Fields Framework - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2019-02-26 12:04:30+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: ru\n"
+"Project-Id-Version: Plugins - Meta Box &#8211; WordPress Custom Fields Framework - Stable (latest release)\n"
+
+#: inc/fields/file.php:61
+msgid "Error: Invalid file"
+msgstr "Ошибка: Неверный файл"
+
+#. Translators: %s - link to documentation.
+#: inc/about/sections/support.php:18
+msgid "Still need help with Meta Box? We offer excellent support for you. But don't forget to check our <a href=\"%s\">documentation</a> first."
+msgstr "Всё ещё требуется помощь по Meta Box? Мы предлагаем превосходную поддержку для Вас! Не забудьте сначала посмотреть нашу <a href=\"%s\">документацию</a>."
+
+#: inc/fields/map.php:55 inc/fields/osm.php:28
+msgid "No results found"
+msgstr "Результатов не найдено"
+
+#: inc/about/about.php:67
+msgid "Dashboard"
+msgstr "Консоль"
+
+#. Translators: %s - Plugin name.
+#: inc/about/sections/welcome.php:15
+msgid "Welcome to %s"
+msgstr "Добро пожаловать в %s"
+
+#: inc/about/sections/extensions.php:80
+msgid "Create register, login and edit user profile forms in the frontend. Embed everywhere with shortcodes."
+msgstr "Создавайте формы регистрации, входа, редактирования профиля для публичной части сайта. Встраивайте везде с помощью шорткода."
+
+#: inc/about/sections/extensions.php:24 inc/about/sections/extensions.php:120
+msgid "Free Download"
+msgstr "Скачать бесплатно"
+
+#: inc/about/sections/upgrade.php:18
+msgid "And much more!"
+msgstr "И многое другое!"
+
+#: inc/about/sections/upgrade.php:20
+msgid "Get Meta Box PRO now"
+msgstr "Получить Meta Box PRO сейчас"
+
+#: inc/about/sections/upgrade.php:17
+msgid "Save custom fields in custom tables."
+msgstr "Сохранение произвольных полей в произвольные таблицы."
+
+#: inc/about/sections/upgrade.php:16
+msgid "Create frontend submission forms."
+msgstr "Создание форм обратной связи на публичной части сайта."
+
+#: inc/about/sections/upgrade.php:15
+msgid "Create custom settings pages."
+msgstr "Создание страницы настроек."
+
+#: inc/about/sections/upgrade.php:14
+msgid "Add custom fields to taxonomies or user profile."
+msgstr "Добавление произвольных полей для таксономий и профилей пользователей."
+
+#: inc/about/sections/upgrade.php:13
+msgid "Create custom fields with drag-n-drop interface - no coding knowledge required!"
+msgstr "Создание произвольных полей путем перетаскивания - не требует знаний программирования!"
+
+#: inc/about/sections/upgrade.php:11
+msgid "Please upgrade to the PRO plan to unlock more awesome features."
+msgstr "Пожалуйста, обновитесь до PRO-версии, чтобы разблокировать удивительные возможности."
+
+#: inc/about/sections/upgrade.php:10
+msgid "Upgrade to Meta Box PRO"
+msgstr "Обновление до Meta Box PRO"
+
+#: inc/about/sections/newsletter.php:11
+msgid "Meta Box Newsletter"
+msgstr "Новостная рассылка Meta Box"
+
+#: inc/about/sections/newsletter.php:13
+msgid "Want to learn how to use Meta Box to its full potential? Sign up to get valuable tips and resources. We will never spam you."
+msgstr "Хотите узнать как использовать Meta Box на полную катушку? Подпишитесь, чтобы получать ценные советы и ссылки на полезные ресурсы. Мы никогда не будем вас спамить."
+
+#. Translators: %1$s - link to review form.
+#: inc/about/about.php:145
+msgid "Please rate <strong>Meta Box</strong> <a href=\"%1$s\" target=\"_blank\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> on <a href=\"%1$s\" target=\"_blank\">WordPress.org</a> to help us spread the word. Thank you from the Meta Box team!"
+msgstr "Пожалуйста, оцените <strong>Meta Box</strong> <a href=\"%1$s\" target=\"_blank\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> на <a href=\"%1$s\" target=\"_blank\">WordPress.org</a>, чтобы помочь нам рассказать о нём всем. Спасибо вам от команды Meta Box!"
+
+#: inc/about/sections/welcome.php:23 inc/about/sections/tabs.php:13
+msgid "Support"
+msgstr "Поддержка"
+
+#: inc/about/sections/support.php:25
+msgid "Go to Github"
+msgstr "Перейти на Github"
+
+#: inc/about/sections/support.php:26
+msgid "Go to WordPress.org"
+msgstr "Перейти на WordPress.org"
+
+#: inc/about/sections/support.php:32
+msgid "Go to support forum"
+msgstr "Перейти на форум поддержки"
+
+#: inc/about/sections/support.php:30
+msgid "Premium Support"
+msgstr "Премиум поддержка"
+
+#: inc/about/sections/support.php:23
+msgid "Free Support"
+msgstr "Бесплатная поддержка"
+
+#: inc/about/sections/newsletter.php:15
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: inc/about/sections/extensions.php:12
+msgid "View Bundles"
+msgstr "Посмотреть наборы"
+
+#: inc/about/sections/extensions.php:32
+msgid "Drag and drop your custom fields into place without a single line of code."
+msgstr "Перетащите ваше произвольное поле в нужное место без единой строки кода."
+
+#: inc/about/sections/extensions.php:20
+msgid "Create and manage custom post types easily in WordPress with an easy-to-use interface."
+msgstr "Создавайте и управляйте произвольными типами записей в WordPress с помощью простого интерфейса."
+
+#: inc/about/sections/extensions.php:44
+msgid "Create repeatable groups of custom fields for better appearance and structure."
+msgstr "Создавайте повторяющиеся группы произвольных полей для лучшего внешнего вида и структуры."
+
+#: inc/about/sections/extensions.php:56
+msgid "Create a powerful settings page for your theme, plugin or website."
+msgstr "Создайте страницу мощных настроек для своей темы, плагина или веб-сайта."
+
+#: inc/about/sections/extensions.php:68
+msgid "Control the visibility of meta boxes and fields or even HTML elements with ease."
+msgstr "Легко контролируйте видимость метабоксов и полей или даже элементов HTML."
+
+#: inc/about/sections/extensions.php:92
+msgid "Create frontend forms for users to submit custom content. Embed everywhere with shortcode."
+msgstr "Создавайте формы для отправки пользовательского контента. Встраивайте везде с помощью шорткода."
+
+#: inc/about/sections/support.php:31
+msgid "For users that have bought premium extensions, the support is provided in the Meta Box Support forum. Any question will be answered with technical details within 24 hours."
+msgstr "Для пользователей, которые приобрели премиальные расширения, эта поддержка предоставляется на форуме поддержки Meta Box. На любой вопрос будут даны технические подробности в течение 24 часов."
+
+#: inc/about/sections/support.php:24
+msgid "If you have any question about how to use the plugin, please open a new topic on WordPress.org support forum or open a new issue on Github (preferable). We will try to answer as soon as we can."
+msgstr "Если у вас есть вопрос о том, как использовать плагин, пожалуйста, создайте новую тему на форуме поддержки WordPress.org или откройте новую проблему в Github (предпочтительнее). Мы постараемся ответить, как только сможем."
+
+#: inc/about/sections/welcome.php:18
+msgid "Meta Box is a free Gutenberg and GDPR-compatible WordPress custom fields plugin and framework that makes quick work of customizing a website with—you guessed it—meta boxes and custom fields in WordPress. Follow the instruction below to get started!"
+msgstr "Meta Box - это плагин для быстрой настройки сайта с помощью метабоксов и произвольных полей WordPress. Совместим с Gutenberg  и GDPR. Следуйте инструкциям ниже, чтобы начать!"
+
+#: inc/fields/switch.php:93
+msgid "On"
+msgstr "Вкл"
+
+#: inc/fields/switch.php:94
+msgid "Off"
+msgstr "Выкл"
+
+#: inc/fields/background.php:134
+msgid "-- Background Size --"
+msgstr "-- Размер фона --"
+
+#: inc/fields/background.php:64
+msgid "Background Image"
+msgstr "Фоновое изображение"
+
+#: inc/fields/background.php:78
+msgid "-- Background Repeat --"
+msgstr "-- Повторение фона --"
+
+#: inc/fields/background.php:80
+msgid "No Repeat"
+msgstr "Не повторять"
+
+#: inc/fields/background.php:83
+msgid "Repeat Vertically"
+msgstr "Повторять по вертикали"
+
+#: inc/fields/background.php:82
+msgid "Repeat Horizontally"
+msgstr "Повторять по горизонтали"
+
+#: inc/fields/background.php:81
+msgid "Repeat All"
+msgstr "Повторять"
+
+#: inc/fields/background.php:96
+msgid "-- Background Position --"
+msgstr "-- Положение фона --"
+
+#: inc/fields/background.php:106
+msgid "Bottom Right"
+msgstr "Снизу справа"
+
+#: inc/fields/background.php:105
+msgid "Bottom Center"
+msgstr "Снизу по центру"
+
+#: inc/fields/background.php:104
+msgid "Bottom Left"
+msgstr "Снизу слева"
+
+#: inc/fields/background.php:103
+msgid "Center Right"
+msgstr "По центру справа"
+
+#: inc/fields/background.php:102
+msgid "Center Center"
+msgstr "По центру"
+
+#: inc/fields/background.php:101
+msgid "Center Left"
+msgstr "По центру слева"
+
+#: inc/fields/background.php:100
+msgid "Top Right"
+msgstr "Сверху справа"
+
+#: inc/fields/background.php:99
+msgid "Top Center"
+msgstr "Сверху по центру"
+
+#: inc/fields/background.php:98
+msgid "Top Left"
+msgstr "Сверху слева"
+
+#: inc/fields/background.php:138
+msgid "Contain"
+msgstr "Вместить"
+
+#: inc/fields/background.php:137
+msgid "Cover"
+msgstr "Растянуть"
+
+#: inc/fields/background.php:118
+msgid "-- Background Attachment --"
+msgstr "-- Привязка фона --"
+
+#: inc/fields/background.php:120
+msgid "Fixed"
+msgstr "Фиксированный"
+
+#: inc/fields/background.php:121
+msgid "Scroll"
+msgstr "Прокручиваемый"
+
+#: inc/fields/background.php:84 inc/fields/background.php:122
+#: inc/fields/background.php:136
+msgid "Inherit"
+msgstr "Наследовать"
+
+#: inc/about/sections/getting-started.php:28
+msgid "Meta Box Group"
+msgstr "Meta Box Group"
+
+#: inc/about/sections/getting-started.php:30
+msgid "MB Settings Page"
+msgstr "MB Settings Page"
+
+#: inc/about/sections/getting-started.php:29
+msgid "Meta Box Conditional Logic"
+msgstr "Meta Box Conditional Logic"
+
+#: inc/about/sections/getting-started.php:31
+msgid "MB Term Meta"
+msgstr "MB Term Meta"
+
+#: inc/about/about.php:66
+msgid "Welcome to Meta Box"
+msgstr "Добро пожаловать в Meta Box"
+
+#: inc/about/sections/extensions.php:36 inc/about/sections/extensions.php:48
+#: inc/about/sections/extensions.php:60 inc/about/sections/extensions.php:72
+#: inc/about/sections/extensions.php:84 inc/about/sections/extensions.php:96
+#: inc/about/sections/extensions.php:108
+#: inc/about/sections/getting-started.php:23
+msgid "Learn More"
+msgstr "Узнать больше"
+
+#: inc/about/about.php:38
+msgid "About"
+msgstr "О плагине"
+
+#: inc/about/sections/getting-started.php:15
+msgid "online generator"
+msgstr "онлайн-генератор"
+
+#: inc/about/sections/getting-started.php:17
+msgid "Go to Online Generator"
+msgstr "Перейти к онлайн-генератору"
+
+#: inc/about/sections/getting-started.php:12
+msgid "Getting Started With Online Generator"
+msgstr "Начните работу с помощью онлайн-генератора"
+
+#: inc/about/sections/getting-started.php:33
+msgid "More Extensions"
+msgstr "Больше расширений"
+
+#: inc/about/sections/tabs.php:10
+msgid "Getting Started"
+msgstr "С чего начать"
+
+#: inc/fields/sidebar.php:23
+msgid "Select a sidebar"
+msgstr "Выбрать область виджетов"
+
+#: inc/about/sections/getting-started.php:21
+msgid "Understand The Basics"
+msgstr "Понимание основ"
+
+#: inc/about/sections/getting-started.php:26
+msgid "Wanna see more features that transform your WordPress website into a powerful CMS? Check out some extensions below:"
+msgstr "Хотите увидеть больше возможностей, которые преобразуют ваш сайт WordPress в мощную CMS? Ознакомьтесь с расширениями ниже:"
+
+#: inc/about/sections/getting-started.php:22
+msgid "Meta Box doesn't have any admin page for configuration or settings. Instead of that, it provides a very powerful API to speed up the process of creating meta boxes and custom fields. It might take you a little time at first, but then you'll love the way it work because it helps you do and customize almost everything."
+msgstr "У Meta Box нет административной страницы настроек. Вместо этого, он предоставляет очень мощный API для ускорения процесса создания метабоксов и произвольных полей. Сначала может потребоваться немного времени, но со временем вы полюбите этот путь, потому что он позволяет делать и настраивать практически всё."
+
+#: inc/about/sections/getting-started.php:13
+msgid "The fastest way to getting started with Meta Box is use our online generator to generate meta boxes with custom fields. It provides a friendly UI for you to create meta boxes and custom fields just by drag and drop fields."
+msgstr "Самый быстрый способ начать работу с Meta Box — использовать онлайн-генератор для создания метабоксов с произвольными полями. Он предоставляет дружественный интерфейс для создания метабоксов и произвольных полей путем перетаскивания."
+
+#. Author of the plugin
+msgid "MetaBox.io"
+msgstr "MetaBox.io"
+
+#. Description of the plugin
+msgid "Create custom meta boxes and custom fields in WordPress."
+msgstr "Создание произвольных метабоксов и произвольных полей в WordPress."
+
+#: inc/fields/media.php:37
+msgctxt "media"
+msgid "or"
+msgstr "или"
+
+#: inc/fields/select-advanced.php:47
+msgid "Select an item"
+msgstr "Выбрать элемент"
+
+#: inc/fields/media.php:36
+msgctxt "media"
+msgid "Select Files"
+msgstr "Выберите файлы"
+
+#: inc/fields/media.php:38
+msgctxt "media"
+msgid "Drop files here to upload"
+msgstr "Перетащите файлы сюда"
+
+#: inc/fields/taxonomy.php:48
+msgid "Select a term"
+msgstr "Выбрать термин"
+
+#: inc/fields/media.php:33
+msgctxt "media"
+msgid "No Title"
+msgstr "Без заголовка"
+
+#: inc/fields/media.php:30
+msgctxt "media"
+msgid "Remove"
+msgstr "Удалить"
+
+#: inc/fields/media.php:28
+msgctxt "media"
+msgid " file"
+msgstr "файл"
+
+#: inc/fields/media.php:29
+msgctxt "media"
+msgid " files"
+msgstr "файлы"
+
+#: inc/fields/media.php:27
+msgctxt "media"
+msgid "+ Add Media"
+msgstr "+ Добавить медиа"
+
+#: inc/field.php:331
+msgid "+ Add more"
+msgstr "+ Добавить ещё"
+
+#: inc/fields/media.php:32
+msgctxt "media"
+msgid "View"
+msgstr "Просмотреть"
+
+#: inc/fields/media.php:31
+msgctxt "media"
+msgid "Edit"
+msgstr "Редактировать"
+
+#: inc/fields/autocomplete.php:23 inc/fields/autocomplete.php:85
+#: inc/fields/autocomplete.php:97
+msgid "Delete"
+msgstr "Удалить"
+
+#: inc/fields/select.php:92
+msgid "None"
+msgstr "Отсутствует"
+
+#: inc/fields/select.php:92
+msgid "All"
+msgstr "Все"
+
+#: inc/about/sections/welcome.php:21 inc/core.php:38
+msgid "Documentation"
+msgstr "Документация"
+
+#: inc/fields/select.php:92 inc/fields/file-input.php:43
+msgid "Select"
+msgstr "Выпадающий список"
+
+#: inc/fields/checkbox.php:53
+msgid "No"
+msgstr "Нет"
+
+#: inc/fields/checkbox.php:53
+msgid "Yes"
+msgstr "Да"
+
+#: inc/fields/file-input.php:45
+msgid "Remove"
+msgstr "Удалить"
+
+#: inc/about/sections/welcome.php:22 inc/about/sections/tabs.php:12
+#: inc/about/sections/getting-started.php:25 inc/core.php:39
+msgid "Extensions"
+msgstr "Расширения"
+
+#: inc/fields/file-input.php:23
+msgid "Select File"
+msgstr "Выбрать файл"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://metabox.io"
+msgstr "https://metabox.io"
+
+#: inc/fields/key-value.php:134
+msgid "Key"
+msgstr "Ключ"
+
+#: inc/fields/key-value.php:135
+msgid "Value"
+msgstr "Значение"
+
+#. Plugin Name of the plugin
+#: inc/about/about.php:50 inc/about/about.php:51
+msgid "Meta Box"
+msgstr "Meta Box"
+
+#: inc/fields/file.php:75
+msgid "Error: Cannot delete file"
+msgstr "Ошибка: невозможно удалить файл"
+
+#: inc/fields/button.php:34
+msgid "Click me"
+msgstr "Нажми меня"
+
+#: inc/fields/oembed.php:24
+msgid "Embed HTML not available."
+msgstr "Вставка HTML не доступна."
+
+#: inc/fields/file.php:159
+msgctxt "file upload"
+msgid "Delete"
+msgstr "Удалить"
+
+#: inc/fields/file.php:160
+msgctxt "file upload"
+msgid "Edit"
+msgstr "Редактировать"
+
+#: inc/fields/file.php:88
+msgctxt "file upload"
+msgid "+ Add new file"
+msgstr "+ Добавить файл"
+
+#: inc/fields/post.php:35
+msgid "Select a post"
+msgstr "Выбрать запись"
+
+#. Translators: %d is the number of files in plural form.
+#: inc/fields/file.php:26
+msgid "You may only upload maximum %d files"
+msgstr "Вы можете загрузить максимум %d файлов"
+
+#. Translators: %d is the number of files in singular form.
+#: inc/fields/file.php:24
+msgid "You may only upload maximum %d file"
+msgstr "Вы можете загрузить максимум %d файл"
+
+#: inc/fields/user.php:42
+msgid "Select an user"
+msgstr "Выбрать пользователя"
+
+#. Translators: %s is the taxonomy singular label.
+#: inc/fields/taxonomy.php:52 inc/fields/post.php:41
+msgid "Select a %s"
+msgstr "Выбрать %s"
+
+#: inc/validation.php:50
+msgid "Please correct the errors highlighted below and try again."
+msgstr "Пожалуйста, исправьте подсвеченные ошибки ниже и попробуйте ещё раз."
