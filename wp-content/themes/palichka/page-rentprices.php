@@ -1,7 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
- * Template name: Masters
+ * Template name: Аренда
  * Template Post Type: page
  * 
  *

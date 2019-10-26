@@ -1,7 +1,7 @@
 <?php
  /**
- * Template name: Main page
- * Template Post Type: post, page, product,masters  
+ * Template name: Главная
+ * Template Post Type: post, page, product, masters  
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
