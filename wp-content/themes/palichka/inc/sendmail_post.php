@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 header("Content-type: text/css; charset: UTF-8"); 
 define('WP_USE_THEMES', false);
 
@@ -28,4 +28,4 @@ remove_filter( 'wp_mail_content_type', 'set_content_type' );
 header('Refresh: 0; url='.get_site_url().'/'.$_POST['page']);
 ?>
 Ваше сообщение успешно отправлено
-<?php
+<?php 

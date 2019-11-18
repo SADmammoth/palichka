@@ -11,7 +11,6 @@ class TopicsGrid extends WP_Widget {
   public function widget( $args, $instance ) {
     $title = apply_filters( 'widget_title', $instance[ 'title' ] );
     $topics =  get_theme_mod('topic_widgets');
-
     ?>
     <section id='<?php echo $this->id ?>' class='topics-section'>
       <div class='container'>
@@ -22,18 +21,33 @@ class TopicsGrid extends WP_Widget {
           <?php 
          
            foreach($topics as $topic){
+            $terms = explode(',', $topic['topic']);
             if($topic['widget'] == $this->id){
-            $my_query = new WP_Query(array(
-              'posts_per_page'           => intval($topic['cards_count']),
+            $args = array(
+              'posts_per_page' => intval($topic['cards_count']),
               'format' => 'html',
               'show_post_count' => false,
               'echo'            => 1,
               'orderby' => 'date',
               'order' => 'DESC',
-              'post_type' => $topic['topic'],
-              ));
+              
+            );
+           
+            if($terms[0] !== 'false'){
+              $args['post_type'] = $terms[0];
+            } 
+            if($terms[1] !== 'false'){
+              $args['tax_query'] = array(
+                array(
+                    'taxonomy' => $terms[0].'_tag',
+                    'field' => 'slug',
+                    'terms' => $terms[1]
+                )
+                );
+            }
 
-              $card = $topic['topic'].'-card';
+              $my_query = new WP_Query($args);
+              $card = $terms[0].'-card';
               switch($topic['layout']){
                 case 'big-topic':
                 ?>

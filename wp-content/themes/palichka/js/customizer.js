@@ -9,6 +9,16 @@
 ( function( $ ) {
 
 	// Site title and description.
+		wp.customize.control('topic_widgets', function (control) {
+		
+			control.setting.bind(function (value) {
+			
+						wp.customize.control('topic_widgets').;
+						break;
+				}
+			});
+		});
+
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
 			$( '.site-title a' ).text( to );

@@ -13,7 +13,7 @@ function posttypes_choice($args, $output){
  }
 
  function terms_choice($term){
-  $cat = get_terms($term);
+  $cat = get_terms(['taxonomy'=>$term, 'hide_empty'=>false]);
   $result= [];
   foreach($cat as $item){
     $result[$item->slug] = $item->name;
@@ -42,6 +42,26 @@ function widget_choice($type){
   }
   return $result;
 }
+
+function posttypes_tags_choice($tag_postfix){
+  $arr = [];
+  $types = posttypes_choice(['public' => true], 'objects');
+  $tags = [];
+  $tag_ids = [];
+  $type_ids = array_keys($types);
+  foreach( $type_ids as $id1){
+    $tags = terms_choice($id1.$tag_postfix);
+    $arr[$id1.',false'] = $types[$id1].', все теги';
+    $tag_ids = array_keys($tags);
+    foreach($tag_ids as $id2){
+      if($id2 === ''){
+        continue;
+      }
+      $arr[$id1.','.$id2] = $types[$id1].', тег: '.$tags[$id2];
+    }
+  }
+  return $arr;
+} 
 
 Kirki::add_field( 'mainpage_nav', [
   'type'        => 'repeater',
@@ -99,13 +119,19 @@ Kirki::add_field( 'topic_widgets', [
     'topic'  => [
       'type'        => 'select',  
       'label'       => esc_html__( 'Раздел блога', 'palichka' ),
-      'choices' =>  array_merge([false=> 'Все'], posttypes_choice(['public' => true], 'objects')),
+      'default' => 'false,false',
+      'choices' =>  array_merge(['false,false' => 'Все разделы, все теги'], posttypes_tags_choice('_tag')),
     ],
-    'tag'  => [
-      'type'        => 'select',  
-      'label'       => esc_html__( 'Теги', 'palichka' ),
-      'choices' =>  array_merge([false=> 'Все'], terms_choice('post_tag')),
-    ],
+    // 'topic'  => [
+    //   'type'        => 'select',  
+    //   'label'       => esc_html__( 'Раздел блога', 'palichka' ),
+    //   'choices' =>  array_merge([false=> 'Все'], posttypes_choice(['public' => true], 'objects')),
+    // ],
+    // 'tag'  => [
+    //   'type'        => 'select',  
+    //   'label'       => esc_html__( 'Теги', 'palichka' ),
+    //   'choices' =>  array_merge([false=> 'Все'], terms_choice('post_tag')),
+    // ],
     'layout'  => [
       'type'        => 'select',  
       'label'       => esc_html__( 'Шаблон', 'palichka' ),

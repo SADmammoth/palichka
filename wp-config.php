@@ -18,50 +18,25 @@
  * @package WordPress
  */
 
-// ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
 /** Имя базы данных для WordPress */
-define( 'DB_NAME', 'palichka' );
 
-/** Имя пользователя MySQL */
-define( 'DB_USER', 'root' );
+/** The name of the database for WordPress */
+define('DB_NAME', 'palichka');
 
-/** Пароль к базе данных MySQL */
-define( 'DB_PASSWORD', 'Vfrc200018mysql' );
+/** MySQL database username */
+define('DB_USER', 'root');
 
-/** Имя сервера MySQL */
-define( 'DB_HOST', 'localhost' );
+/** MySQL database password */
+define('DB_PASSWORD','Vfrc200018mysql');
 
-/** Кодировка базы данных для создания таблиц. */
-define( 'DB_CHARSET', 'utf8' );
+/** MySQL hostname */
+define('DB_HOST', 'localhost');
 
-<<<<<<< HEAD
-/** Схема сопоставления. Не меняйте, если не уверены. */
-define( 'DB_COLLATE', '' );
-
-=======
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
->>>>>>> 70ae99d... fix: template name fix
-/**#@+
- * Уникальные ключи и соли для аутентификации.
- *
- * Смените значение каждой константы на уникальную фразу.
- * Можно сгенерировать их с помощью {@link https://api.wordpress.org/secret-key/1.1/salt/ сервиса ключей на WordPress.org}
- * Можно изменить их, чтобы сделать существующие файлы cookies недействительными. Пользователям потребуется авторизоваться снова.
- *
- * @since 2.6.0
- */
-define( 'AUTH_KEY',         'впишите сюда уникальную фразу' );
-define( 'SECURE_AUTH_KEY',  'впишите сюда уникальную фразу' );
-define( 'LOGGED_IN_KEY',    'впишите сюда уникальную фразу' );
-define( 'NONCE_KEY',        'впишите сюда уникальную фразу' );
-define( 'AUTH_SALT',        'впишите сюда уникальную фразу' );
-define( 'SECURE_AUTH_SALT', 'впишите сюда уникальную фразу' );
-define( 'LOGGED_IN_SALT',   'впишите сюда уникальную фразу' );
-define( 'NONCE_SALT',       'впишите сюда уникальную фразу' );
 
 /**#@-*/
 
