@@ -8,21 +8,55 @@
 
  get_header();
 ?>
+<form action='<?php echo get_permalink()?>' method='GET'>
  <section id='master-section'>
- <form class='floating-btn' action='' method='GET'>
+ 
+ <div class='floating-btn'>
  <label><i class='fas fa-edit pictogram'></i></label>
-    <input type='hidden' name='edit' value=true />
-    <button type='submit'>Edit</button>
-</form>
-    <div class='container horizontal-flex-block' style='margin-bottom: 20px; position: relative; justify-content: flex-start;'>
-      <img class='photo' width='200' height='200'  src='<?php $pic = reset(rwmb_meta('masters-photo'))['url']; echo $pic?$pic:get_site_url().'/wp-content/uploads/2019/08/tablero-de-paleta-de-pintura-con-contorno-de-pincel.png'?>' alt='<?php echo the_title()?>' title='<?php echo the_title() ?>' />
+    <input type='hidden' name='edit' value=false />
+    <button type='submit'>Save</button>
+</div>
+    <div class='container horizontal-flex-block' style='position: relative; justify-content: flex-start;'>
+          <input type='file' id='photo_input' name='photo' accept="image/*" style="display: none;  padding: 0; border: 0" onchange='console.log(); document.getElementById("photo").setAttribute("src", window.URL.createObjectURL(this.files[0]))'/>
+          <label for='photo_input' style='position: relative;'><i class='fas fa-edit' style='font-size: 1.5rem; left: 8px; top: 8px;position: absolute; text-shadow: 0 0 2px white'></i><img  class='photo' id='photo' width='200' height='200' src='<?php $pic = reset(rwmb_meta('masters-photo'))['url']; echo $pic?$pic:get_site_url().'/wp-content/uploads/2019/08/tablero-de-paleta-de-pintura-con-contorno-de-pincel.png'?>' alt='<?php echo the_title()?>' title='<?php echo the_title() ?>' />
+          </label>
         <div class='master-description'>
           <div class='background'>
-            <h1 class='h1-small'><?php echo the_title()?></h1>
+            <h1  class="h1-small option option-box"
+                style="height: 70px; padding: 7px 18px; margin: 0"
+              > <label
+                  for="title"
+                  class="additional-text"
+                  style="font-size: 1.5rem; margin: 11px -5px"
+                >
+                  <i class="fas fa-edit"></i>
+                </label>
+                <input
+                  id="title"
+                  name="title"
+                  class="option-box"
+                  type="text"
+                  value="<?php echo the_title()?>"
+                  placeholder="ФИО или псевдоним  "
+                /></h1>
           </div>
-          <p class='main-text hyphenated'>
-          <?php echo rwmb_meta('masters-desc')?>
-          </p>
+          <div
+              class="main-text option-box option"
+              style="margin: -10px 0 0 50px; padding: 15px; height: 160px; width: 88%"
+            >
+              <label for="desc" class="additional-text" style="font-size: 1.5rem;">
+                <i class="fas fa-edit"></i>
+              </label>
+              <textarea
+                id="desc"
+                name='desc'
+                class="option-box"
+                style="margin: 0 30px; resize: none; overflow: hidden; width: 90%"
+              ><?php echo rwmb_meta('masters-desc')?></textarea
+              >
+            </div>
+          </div>
+          </div>
         </div>
       </div>
     </section>
@@ -90,6 +124,7 @@
         </div>
       </div>
     </section>
+    </form>
 <?php
 get_footer();
 ?>
