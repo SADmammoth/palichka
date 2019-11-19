@@ -131,7 +131,7 @@ add_action( 'widgets_init', 'palichka_widgets_init' );
 function palichka_scripts() {
   wp_enqueue_style( 'palichka-normalize', get_template_directory_uri().'/layouts/normalize.css' );
   wp_enqueue_style( 'palichka-customize-root-vars', get_template_directory_uri().'/layouts/customize-root-vars.php' );
-  wp_enqueue_script( 'fontawesome-script', 'https://kit.fontawesome.com/0de215b32e.js', array(), '5.2.3', true);
+  wp_enqueue_style( 'fontawesome-style', get_template_directory_uri().'./layouts/fontawesome-free-5.1.1-web/index.css');
   wp_enqueue_style( 'palichka-style', get_stylesheet_uri() );
 
   wp_register_script( 'palichka-hyphenate', get_template_directory_uri() . '/js/hyphenate.js', array(), '2.0', true );

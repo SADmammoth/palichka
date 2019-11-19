@@ -596,7 +596,7 @@ strong {
 .common-dropdown::before {
   display: inline-block;
   content: "\f078";
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 5 Free";
   font-style: normal;
   font-weight: 900;
   font-display: auto;
@@ -744,7 +744,7 @@ input[type="radio"] {
 
 input[type="radio"]:checked::before {
   content: "\f192";
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 5 Free";
   font-style: normal;
   font-weight: 900;
   font-display: auto;
@@ -752,7 +752,7 @@ input[type="radio"]:checked::before {
 
 input[type="radio"]::before {
   content: "\f111";
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 5 Free";
   font-style: normal;
   font-weight: 900;
   font-display: auto;
@@ -826,7 +826,7 @@ header .container {
 
 .burger-icon::before {
   content: "\f0c9";
-  font-family: "Fontawesome Solid";
+  font-family: "Font Awesome 5 Free";
   font-size: 20px;
   color: var(--primary-text-color);
   padding: 10px;
