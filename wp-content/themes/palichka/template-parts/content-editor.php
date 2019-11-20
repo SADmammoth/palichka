@@ -12,11 +12,9 @@
  <section id='master-section'>
  
  <div class='floating-btn'>
- <label><i class='fas fa-edit pictogram'></i></label>
     <input type='hidden' name='edit' value=false />
-    <button type='submit'>Save</button>
+    <button type='submit' style='background: none'><i class='fas fa-check pictogram'></i></button>
 </div>
-<?php ECHO(print_r(rwmb_meta('masters-photo'))) ?>
     <div class='container horizontal-flex-block' style='position: relative; justify-content: flex-start;'>
           <input type='file' id='photo_input' name='photo' accept="image/*" style="display: none;  padding: 0; border: 0" onchange='console.log(); document.getElementById("photo").setAttribute("src", window.URL.createObjectURL(this.files[0]))'/>
           <label for='photo_input' style='position: relative;'><i class='fas fa-edit' style='font-size: 1.5rem; left: 8px; top: 8px;position: absolute; text-shadow: 0 0 2px white'></i><img  class='photo' id='photo' width='200' height='200' src='<?php $pic = reset(rwmb_meta('masters-photo'))['url']; echo $pic?$pic:get_site_url().'/wp-content/uploads/2019/08/tablero-de-paleta-de-pintura-con-contorno-de-pincel.png'?>' alt='<?php echo the_title()?>' title='<?php echo the_title() ?>' />

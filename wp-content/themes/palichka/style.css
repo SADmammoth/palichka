@@ -228,6 +228,11 @@ strong {
 
 /* Buttons and links*/
 
+button {
+   outline: none;
+   border: none;
+}
+
 .button {
   padding: 10px;
   font-size: 1.1rem;
@@ -257,14 +262,19 @@ strong {
   height: 50px;
   width: 50px;
   box-shadow: var(--shadow);
+  border: var(--divider);
   background: var(--dark-background);
   position: fixed !important;
-  bottom: 10px;
-  right: 10px;
+  bottom: 10%;
+  right: 5%;
   z-index: 99999;
   box-sizing: border-box;
-  padding-left: 6px;
-  padding-top: 12px;
+  padding-left: 3px;
+  padding-top: 14px;
+}
+
+.floating-btn i {
+  width: 30px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -722,14 +732,6 @@ textarea {
   textarea {
     height: 200px;
   }
-}
-
-*[type="submit"] {
-  border: inherit;
-  color: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  float: right;
 }
 
 #feedback-form {

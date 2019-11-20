@@ -10,9 +10,8 @@
 ?>
  <section id='master-section'>
  <form class='floating-btn' action='' method='GET'>
- <label><i class='fas fa-edit pictogram'></i></label>
     <input type='hidden' name='edit' value=true />
-    <button type='submit'>Edit</button>
+    <button type='submit' style='background: none'><i class='fas fa-edit pictogram'></i></button>
 </form>
     <div class='container horizontal-flex-block' style='margin-bottom: 20px; position: relative; justify-content: flex-start;'>
       <img class='photo' width='200' height='200'  src='<?php $pic = reset(rwmb_meta('masters-photo'))['url']; echo $pic?$pic:get_site_url().'/wp-content/uploads/2019/08/tablero-de-paleta-de-pintura-con-contorno-de-pincel.png'?>' alt='<?php echo the_title()?>' title='<?php echo the_title() ?>' />
