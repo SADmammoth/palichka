@@ -20,7 +20,6 @@ get_header();
       if ($_GET){
         $sort = isset($_GET['sort'])?$_GET['sort']: 'title';
         $invert = isset($_GET['invert'])?$_GET['invert']: 'ASC';
-        
       }else{
         $sort = 'title';
         $invert = 'ASC';
@@ -108,10 +107,10 @@ get_header();
                 <label for='no_filter '>Нет фильтра</label>
 
               </li>
-              <?php
-              $tags = get_terms('post_tag');
-              foreach ($tags as $one_tag){
-                ?>
+                <?php
+                $tags = get_terms('post_tag');
+                foreach ($tags as $one_tag){
+              ?>
                 <li class='vflex-item'>
                 <input onclick='setTimeout(close_dropdown, 300, this);' id='filter_<?php echo $one_tag->slug?>' name='filter' value='<?php echo $one_tag->slug ?>' type='radio'
                 <?php echo !empty($_POST['filter'])?($_POST['filter']==$one_tag->slug?'checked':''):'' ?>>
