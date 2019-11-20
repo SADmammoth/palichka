@@ -14,14 +14,17 @@ get_header();
 
 		<?php
 		while ( have_posts() ) :
-			the_post();
+      the_post();
+     
       if ($_GET){
+        if(wp_get_current_user()->user_login === basename(get_permalink())){
         if($_GET['edit']==='true'){
           get_template_part( 'template-parts/content', 'editor' );
         }      
       }
       
       else if($_POST['edit']==='false'){
+        $upload_id = reset(rwmb_meta('masters-photo'))['ID'];
         $photo = $_FILES['photo'];
         echo(strpos($photo['type'], 'image/'));
         if(strpos($photo['type'], 'image/') !== false){
@@ -45,16 +48,24 @@ get_header();
           require_once( ABSPATH . 'wp-admin/includes/image.php' );
           wp_update_attachment_metadata( $upload_id, wp_generate_attachment_metadata( $upload_id, $new_file_path ) );
         }
-        add_post_meta(get_the_ID(), 'masters-photo', $upload_id, false );
-        wp_update_post(['ID'=> get_the_ID(), 'post_type' => 'masters', 'post_title'=>$_POST['title'], 
-        'meta_input'=>array('masters-desc'=>$_POST['desc'])], false);
         }
+        wp_update_post(['ID'=> get_the_ID(), 'post_type' => 'masters', 'post_title'=>$_POST['title'], 
+        'meta_input'=>array('masters-photo'=>$upload_id, 'masters-desc'=>$_POST['desc'])], false);
         ?>
         <script>
           document.location.href = '<?php echo get_permalink() ?>'
         </script>
         <?php
       }
+      
+    else {
+      ?>
+      <script>
+        document.location.href = '<?php echo get_site_url().'/404.php'?>';
+      </script>
+      <?php
+    }
+    }
       else{
         get_template_part( 'template-parts/content', 'masters' );
       }

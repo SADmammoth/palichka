@@ -9,10 +9,14 @@
  get_header();
 ?>
  <section id='master-section'>
+ <?php
+ if(wp_get_current_user()->user_login === basename(get_permalink())):
+ ?>
  <form class='floating-btn' action='' method='GET'>
     <input type='hidden' name='edit' value=true />
     <button type='submit' style='background: none'><i class='fas fa-edit pictogram'></i></button>
 </form>
+ <?php endif;?>
     <div class='container horizontal-flex-block' style='margin-bottom: 20px; position: relative; justify-content: flex-start;'>
       <img class='photo' width='200' height='200'  src='<?php $pic = reset(rwmb_meta('masters-photo'))['url']; echo $pic?$pic:get_site_url().'/wp-content/uploads/2019/08/tablero-de-paleta-de-pintura-con-contorno-de-pincel.png'?>' alt='<?php echo the_title()?>' title='<?php echo the_title() ?>' />
         <div class='master-description'>
@@ -44,16 +48,6 @@
           if($my_query->found_posts):
             while($my_query->have_posts()) {
               $counter = $counter+1;
-              
-              
-              // if($count === 1 || $count === 2){
-              // echo "<a class='vflex-item masterpiece-card card'>";
-              // }
-              // else if($count === 0 || $count === -1){
-              //   echo "<a class='vflex-item masterpiece-card card handheld'>";
-              // }else{
-              //   echo "<a class='vflex-item masterpiece-card card desktop'>";
-              // }
 
               $my_query->the_post();
               get_template_part('template-parts/masterpiece-card');

@@ -78,17 +78,6 @@
           if($my_query->found_posts):
             while($my_query->have_posts()) {
               $counter = $counter+1;
-              
-              
-              // if($count === 1 || $count === 2){
-              // echo "<a class='vflex-item masterpiece-card card'>";
-              // }
-              // else if($count === 0 || $count === -1){
-              //   echo "<a class='vflex-item masterpiece-card card handheld'>";
-              // }else{
-              //   echo "<a class='vflex-item masterpiece-card card desktop'>";
-              // }
-
               $my_query->the_post();
               get_template_part('template-parts/masterpiece-card');
               ?>
