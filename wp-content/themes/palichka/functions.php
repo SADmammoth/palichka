@@ -168,7 +168,11 @@ function register_page_types() {
   $args = array(
       'public' => true,
       'has_archive' => false,
-      'label'  => 'Палiчкi',
+      'labels' => array(  
+        'name' => 'Палiчкi',
+        'singular_name'=> 'Палiчка',
+        'not_found' => 'Мастера не найдены'
+      ),
       'publicly_queryable' => true,
       'show_in_rest' => true,
       'template' => array(
@@ -221,7 +225,11 @@ function register_page_types() {
   $args = array(
     'public' => true,
     'has_archive' => false,
-    'label'  => 'Отзывы',
+    'labels' => array(  
+      'name' => 'Отзывы',
+      'singular_name'=> 'Отзыв',
+      'not_found' => 'Отзывы не найдены'
+    ),
     'publicly_queryable' => true,
     'show_in_rest' => true,
     'template' => array(
@@ -246,7 +254,11 @@ function register_page_types() {
   $args = array(
     'public' => true,
     'has_archive' => false,
-    'label'  => 'Работы',
+    'labels' => array(  
+      'name' => 'Работы',
+      'singular_name'=> 'Работа',
+      'not_found' => 'Работы не найдены'
+    ),
     'publicly_queryable' => true,
     'show_in_rest' => true,
     'template' => array(
