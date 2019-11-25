@@ -39,7 +39,11 @@
         'add_li_class'=>'nav-item hflex-item'
 			) );
       ?>
-        <nav class='social-nav-container desktop'>
+
+      <div class='social-nav-container'>
+        <?php echo dynamic_sidebar('header-widget')?>
+      </div>
+        <!-- <nav class='social-nav-container desktop'>
       <p class='hint'>Ищите нас в соцсетях:</p>
        <?php
 			wp_nav_menu( array(
@@ -50,7 +54,7 @@
       ) );
 
       ?>
-      </nav>
+      </nav> -->
           <div class='dropdown handheld'>
             <input class='burger-icon dropdown-trigger' type='checkbox'>
             <div class='burger-menu-bottom dropdown-content'>
