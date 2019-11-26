@@ -376,7 +376,16 @@ button {
 }
 
 /* Layout components */
+.hidden {
+  display: none;
+}
 
+.error-message {
+  background: var(--error-bg);
+  color: var(--error-color);
+  padding: 10px;
+  border-radius: 10px;
+}
 .container {
   margin-left: var(--viewport-padding);
   float: left;
@@ -720,7 +729,7 @@ input[type="password"] {
 
 fieldset {
   width: 100%;
-  padding: 5px 10px;
+  padding: 5px 0;
   box-sizing: border-box;
   border: none;
 }
@@ -781,6 +790,18 @@ input.hidden {
 
 .submit_message i {
   padding-right: 10px;
+}
+
+#registration-form {
+  max-width: 98vw;
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  float: none;
+}
+
+#registration-form .form-input {
+  height: 50px;
 }
 
 /*# HEADER */

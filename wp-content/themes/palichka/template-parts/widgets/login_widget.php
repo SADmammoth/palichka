@@ -15,8 +15,8 @@ class LoginWidget extends WP_Widget {
       <label class='link additional-text' for='signin'>Войти</label>
       <input id='signin' class='hidden common-dropdown dropdown-trigger' type='checkbox'/>
       <div class='option-dropdown-content dropdown-content vertical-flex-block' style='width: 230%; padding-bottom: 10px;'>
-        <input id='login' type='text' class='option option-box' name='login' placeholder='Имя или email'/>
-        <input id='login' type='password' class='option option-box' name='password' placeholder='Пароль'/>
+        <input type='text' class='option option-box' name='login' placeholder='Имя или email'/>
+        <input type='password' class='option option-box' name='password' placeholder='Пароль'/>
         <div style='width: 100%;'>
         <a onclick='close_dropdown(this);' class='link hint' style='cursor: pointer'>Отмена</a>
         <button type='submit' class='button' style='float: right;'>Войти</button>

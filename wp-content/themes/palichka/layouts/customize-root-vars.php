@@ -30,6 +30,8 @@ $common_text_color= get_theme_mod('common_text_color');
     --buttons-hover: <?php echo $buttons_hover; ?>;
     --shadow-color: <?php echo $shadow_color; ?><?php echo $shadow_opacity; ?>;
     --shadow: 2px 2px 4px var(--shadow-color);
+    --error-bg: #ff8269c4;
+    --error-color: #802d18;
     /*Typography*/
     --font: 'Roboto', sans-serif;
     --primary-text-color: <?php echo $primary_text_color; ?>;

@@ -121,6 +121,7 @@ function palichka_scripts() {
   wp_enqueue_style( 'fontawesome-style', get_template_directory_uri().'./layouts/fontawesome-free-5.1.1-web/index.css');
   wp_enqueue_style( 'palichka-style', get_stylesheet_uri() );
 
+  wp_register_script( 'palichka-registration', get_template_directory_uri().'/js/registration.js', array(), 1.0, true );
   wp_register_script( 'palichka-hyphenate', get_template_directory_uri() . '/js/hyphenate.js', array(), '2.0', true );
   wp_enqueue_script( 'palichka-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
   wp_enqueue_script( 'palichka-scripts', get_template_directory_uri() . '/js/minor-scripts.js', array(), null, true );
@@ -151,6 +152,13 @@ function add_additional_class_on_li($classes, $item, $args) {
 }
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 
+add_filter( 'parse_query', 'ts_hide_pages_in_wp_admin' );
+function ts_hide_pages_in_wp_admin($query) {
+    global $pagenow,$post_type;
+    if (is_admin() && $pagenow=='edit.php' && $post_type =='page') {
+        $query->query_vars['post__not_in'] = array('655');
+    }
+}
 
 require get_template_directory() . '/inc/post_types_and_terms.php';
 require get_template_directory() . '/inc/register_sidebars.php';
