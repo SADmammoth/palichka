@@ -41,7 +41,7 @@
       ?>
 
       <div class='social-nav-container'>
-        <?php echo dynamic_sidebar('header-widget')?>
+        <?php dynamic_sidebar('header-widget')?>
       </div>
         <!-- <nav class='social-nav-container desktop'>
       <p class='hint'>Ищите нас в соцсетях:</p>

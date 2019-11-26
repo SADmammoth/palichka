@@ -184,6 +184,7 @@ require get_template_directory() . '/template-parts/widgets/articles_grid_widget
 require get_template_directory() . '/template-parts/widgets/get_widget.php';
 require get_template_directory() . '/template-parts/widgets/topics_grid_widget.php';
 require get_template_directory() . '/template-parts/widgets/message_widget.php';
+require get_template_directory() . '/template-parts/widgets/login_widget.php';
 require get_template_directory() . '/template-parts/mainpage_nav.php';
 require get_template_directory() . '/inc/metaboxes.php';
 require get_template_directory() . '/inc/kirki.php'; ?>

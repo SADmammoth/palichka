@@ -229,8 +229,8 @@ strong {
 /* Buttons and links*/
 
 button {
-   outline: none;
-   border: none;
+  outline: none;
+  border: none;
 }
 
 .button {
@@ -660,7 +660,7 @@ button {
   background: var(--dark-background);
   width: 98%;
   height: 32px;
-  margin: 5px 5%;
+  margin: 5px 1%;
   padding: 5px;
 }
 
@@ -681,7 +681,7 @@ button {
   position: absolute;
 }
 
-.option > input[type="checkbox"] {
+.option > input[type="checkbox"]:not(.hidden) {
   position: absolute;
   right: 0;
   border-left: var(--divider);
@@ -707,7 +707,8 @@ button {
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
   height: 40px;
 }
 
@@ -744,7 +745,7 @@ input[type="radio"] {
   outline: none;
 }
 
-input[type="radio"]:checked::before {
+input[type="radio"]:not(.hidden):checked::before {
   content: "\f192";
   font-family: "Font Awesome 5 Free";
   font-style: normal;
@@ -752,13 +753,18 @@ input[type="radio"]:checked::before {
   font-display: auto;
 }
 
-input[type="radio"]::before {
+input[type="radio"]:not(.hidden)::before {
   content: "\f111";
   font-family: "Font Awesome 5 Free";
   font-style: normal;
   font-weight: 900;
   font-display: auto;
   color: var(--primary-text-color);
+}
+
+input.hidden {
+  -webkit-appearance: none;
+  outline: none;
 }
 
 .submit_message {

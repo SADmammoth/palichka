@@ -14,12 +14,10 @@ register_sidebar( array(
   'name' => __( 'Виджет в заголовке', 'palichka' ),
   'id' => 'header-widget',
   'before_widget' => '',
-  'after_widget' => '',
-  'before_title' => '<div>',
-  'after_title' => '</div>',
+    'after_widget' => '',
+    'before_title' => '',
+    'after_title' => '',
    ) );
-// ) );
-
 }
 
 add_action( 'widgets_init', 'palichka_widgets_init' );
