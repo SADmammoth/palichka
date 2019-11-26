@@ -21,7 +21,7 @@ get_header();
         </div>
         </fieldset>
        
-        <button class='button' type='submit'>Зарегистрироваться</button>
+        <button class='button' onclick='check_password(this);'>Зарегистрироваться</button>
         
       </form>
     
