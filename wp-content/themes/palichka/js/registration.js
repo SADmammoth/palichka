@@ -1,3 +1,41 @@
+function check_username(input) {
+  let username = input.value;
+  fetch(input.form.action, {
+    method: "POST",
+    body: JSON.stringify({ username: username }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(response => {
+      response
+        .json()
+        .then(data =>
+          data.userfound ? user_message("Имя пользователя уже занято") : hide_user_message()
+        );
+    })
+    .catch(message => user_message(message));
+}
+
+function check_email(input) {
+  let email = input.value;
+  fetch(input.form.action, {
+    method: "POST",
+    body: JSON.stringify({ email: email }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(response => {
+      response
+        .json()
+        .then(data =>
+          data.userfound ? user_message("Email уже зарегистрирован") : hide_user_message()
+        );
+    })
+    .catch(message => user_message(message));
+}
+
 function check_password() {
   event.preventDefault();
   let password = document.getElementById("password").value;
@@ -25,6 +63,17 @@ function check_password() {
     return;
   }
   hide_password_message();
+}
+
+function user_message(text) {
+  let message = document.getElementById("user_error");
+  message.getElementsByClassName("message")[0].innerHTML = text;
+  message.classList.remove("hidden");
+}
+
+function hide_user_message() {
+  let message = document.getElementById("user_error");
+  message.classList.add("hidden");
 }
 
 function password_message(text) {
