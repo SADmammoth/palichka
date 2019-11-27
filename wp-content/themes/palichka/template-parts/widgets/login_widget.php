@@ -9,6 +9,7 @@ class LoginWidget extends WP_Widget {
   }
 
   public function widget( $args, $instance ) {
+    if(!is_user_logged_in()):
     ?>
     <form action='<?php echo get_template_directory_uri().'/inc/users.php'?>' method='POST' class='background' style='margin-top: -8px;'>
     <div class='dropdown' style='padding: 0 5px;'>
@@ -30,6 +31,14 @@ class LoginWidget extends WP_Widget {
       <a href='<?php echo get_site_url().'/register'?>' class='link hint'>Зарегистрироваться</a>
     </div>
     <?php
+    else:
+    ?>
+    <div class='hint' style='margin-top: -8px;'>Вы вошли, как</div>
+    <div class='background additional-text'><div style='padding: 0 5px;'><?php echo wp_get_current_user()->user_firstname?wp_get_current_user()->user_firstname:wp_get_current_user()->user_login ?></div></div>
+    <a class='link hint' href='<?php echo wp_logout_url(get_site_url())?>'>Выход</a>
+    <?php
+    
+  endif;
   }
 
   public function form( $instance ) {
