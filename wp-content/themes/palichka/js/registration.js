@@ -1,13 +1,10 @@
 function check_submit(button) {
   event.preventDefault();
-  alert(me.form.email_validated);
-  if (button.from.validate()) {
-    if (
-      button.form.login_validated &&
-      button.form.email_validated &&
-      button.form.password_validated
-    ) {
-      button.form.submit();
+  console.log(button.form);
+  if (button.form.checkValidity()) {
+    if (button.form.login_validated && button.form.email_validated && check_password(button)) {
+      alert(0);
+      document.createElement("form").submit.call(button.form);
     }
   } else {
     user_message("Заполните все поля");
@@ -16,7 +13,7 @@ function check_submit(button) {
 
 async function check_validity(me) {
   me.form.login_validated = await check_username(
-    me.form.elements["login"],
+    me.form.elements["username"],
     !me.form.email_validated
   );
   me.form.email_validated = await check_email(me.form.elements["email"], !me.form.login_validated);
@@ -53,8 +50,7 @@ async function check_username(input, hide_message = true) {
 
 async function check_email(input, hide_message = true) {
   let email = input.value;
-  input.form.email_validated = false;
-  let flag = false;
+  let flag = true;
   let response = await fetch(input.form.action, {
     method: "POST",
     body: JSON.stringify({ email: email }),
@@ -86,7 +82,7 @@ function check_password(button) {
   let password = document.getElementById("password").value;
   if (password !== document.getElementById("repeat_password").value) {
     password_message("Пароли не совпадают");
-    button.from.password_validated = false;
+    button.form.password_validated = false;
     return false;
   }
   let password_reqexp = new RegExp(
@@ -106,11 +102,11 @@ function check_password(button) {
       <li>Содержит цифры и заглавные буквы</li>
       </ul>`
     );
-    button.from.password_validated = false;
+    button.form.password_validated = false;
     return false;
   }
   hide_password_message();
-  button.from.password_validated = true;
+  button.form.password_validated = true;
   return true;
 }
 
