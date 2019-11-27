@@ -22,9 +22,9 @@ function check_submit(button, signin = true) {
 async function check_validity(me) {
   me.form.login_validated = await check_username(
     me.form.elements["username"],
-    !me.form.email_validated
+    me.form.email_validated
   );
-  me.form.email_validated = await check_email(me.form.elements["email"], !me.form.login_validated);
+  me.form.email_validated = await check_email(me.form.elements["email"], me.form.login_validated);
 }
 
 async function check_validity_combined(me) {
@@ -48,22 +48,13 @@ async function check_username(input, hide_message = true) {
       "Content-Type": "application/json"
     }
   });
-  response
-    .json()
-    .then(data => {
-      if (data.userfound) {
-        user_message("Имя пользователя уже занято");
-        flag = false;
-      } else {
-        if (hide_message) {
-          hide_user_message();
-        }
-      }
-    })
-    .catch(message => {
-      user_message(message);
-      flag = false;
-    });
+  let data = await response.json();
+  if (data.userfound) {
+    user_message("Имя пользователя уже занято");
+    flag = false;
+  } else if (hide_message) {
+    hide_user_message();
+  }
   return flag;
 }
 
@@ -77,22 +68,13 @@ async function check_email(input, hide_message = true) {
       "Content-Type": "application/json"
     }
   });
-  response
-    .json()
-    .then(data => {
-      if (data.userfound) {
-        user_message("Email уже зарегистрирован");
-        flag = false;
-      } else {
-        if (hide_message) {
-          hide_user_message();
-        }
-      }
-    })
-    .catch(message => {
-      user_message(message);
-      flag = false;
-    });
+  let data = response.json();
+  if (data.userfound) {
+    user_message("Email уже зарегистрирован");
+    flag = false;
+  } else if (hide_message) {
+    hide_user_message();
+  }
   return flag;
 }
 

@@ -13,7 +13,7 @@ class LoginWidget extends WP_Widget {
     <form class='background' style='margin-top: -8px;'>
     <div class='dropdown' style='padding: 0 5px;'>
       <label class='link additional-text' for='signin'>Войти</label>
-      <input id='signin' class='hidden common-dropdown dropdown-trigger' type='checkbox'/>
+      <input id='signin' class='common-dropdown dropdown-trigger' type='checkbox'/>
       <div class='option-dropdown-content dropdown-content vertical-flex-block' style='width: 230%; padding-bottom: 10px;'>
         <input type='text' class='option option-box' name='login' placeholder='Имя или email'/>
         <input type='password' class='option option-box' name='password' placeholder='Пароль'/>
@@ -25,7 +25,7 @@ class LoginWidget extends WP_Widget {
     </div>
     </form>
     <div>
-      <a href='#' class='link hint'>Зарегистрироваться</a>
+      <a href='<?php echo get_site_url().'/register'?>' class='link hint'>Зарегистрироваться</a>
     </div>
     <?php
   }

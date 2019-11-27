@@ -27,7 +27,7 @@ echo print_r($_GET)
         </fieldset>
         <input type='hidden' name='reg' value='<?php echo isset($_GET["signin"])?'false':'true'?>'/>
         <a class='link' href='<?php echo(get_site_url().'/register/'.(isset($_GET["signin"])?'':'?signin="true"'))?>' ?><?php echo isset($_GET["signin"])?"Регистрация":"Вход"?></a>
-        <button type='submit' class='button' onclick='check_submit(this);' style='float: right'><?php echo isset($_GET["signin"])?"Войти":"Зарегистрироваться"?></button>
+        <button type='submit' class='button' onclick='check_submit(this, <?php echo isset($_GET["signin"])?"true":"false"?>);' style='float: right'><?php echo isset($_GET["signin"])?"Войти":"Зарегистрироваться"?></button>
       </form>
     
       </section>

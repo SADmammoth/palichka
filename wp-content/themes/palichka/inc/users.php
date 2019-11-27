@@ -11,8 +11,8 @@ if($_POST["reg"] === 'false'){
   header('Location: '.get_site_url());
 }
 else
-if((isset($_POST["username"]) && get_user_by('login', $_POST["username"]) 
-|| (isset($_POST["email"]) && get_user_by('email', $_POST["email"])))){
+if((isset($_POST["username"]) && get_user_by('login', $_POST["username"]))
+|| (isset($_POST["email"]) && get_user_by('email', $_POST["email"]))){
   if(!$_POST["reg"]){
   echo '{"code": 200, "message":"Request succesful", "userfound": true}';
   }
