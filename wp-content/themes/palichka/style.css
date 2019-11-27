@@ -373,7 +373,7 @@ strong {
 
 /* Layout components */
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .error-message {
@@ -765,11 +765,6 @@ input[type="radio"]:not(.hidden)::before {
   font-weight: 900;
   font-display: auto;
   color: var(--primary-text-color);
-}
-
-input.hidden {
-  -webkit-appearance: none;
-  outline: none;
 }
 
 .submit_message {

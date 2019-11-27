@@ -1,8 +1,16 @@
-function check_submit(button) {
+function check_submit(button, signin = true) {
   event.preventDefault();
-  console.log(button.form);
-  if (button.form.checkValidity()) {
-    if (button.form.login_validated && button.form.email_validated && check_password(button)) {
+  console.log(
+    button.form.login_validated,
+    button.form.email_validated,
+    signin || check_password(button)
+  );
+  if (signin || button.form.checkValidity()) {
+    if (
+      button.form.login_validated &&
+      button.form.email_validated &&
+      (signin || check_password(button))
+    ) {
       alert(0);
       document.createElement("form").submit.call(button.form);
     }
@@ -17,6 +25,17 @@ async function check_validity(me) {
     !me.form.email_validated
   );
   me.form.email_validated = await check_email(me.form.elements["email"], !me.form.login_validated);
+}
+
+async function check_validity_combined(me) {
+  if (/.*@.*/.test(me.value)) {
+    me.form.email_validated = await check_email(me, true);
+    me.form.login_validated = await me.form.email_validated;
+  } else {
+    me.form.login_validated = await check_username(me, true);
+    me.form.email_validated = await me.form.login_validated;
+  }
+  setTimeout(hide_user_message, 0);
 }
 
 async function check_username(input, hide_message = true) {
