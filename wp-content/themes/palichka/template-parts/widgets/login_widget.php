@@ -10,16 +10,18 @@ class LoginWidget extends WP_Widget {
 
   public function widget( $args, $instance ) {
     ?>
-    <form class='background' style='margin-top: -8px;'>
+    <form action='<?php echo get_template_directory_uri().'/inc/users.php'?>' method='POST' class='background' style='margin-top: -8px;'>
     <div class='dropdown' style='padding: 0 5px;'>
       <label class='link additional-text' for='signin'>Войти</label>
       <input id='signin' class='common-dropdown dropdown-trigger' type='checkbox'/>
       <div class='option-dropdown-content dropdown-content vertical-flex-block' style='width: 230%; padding-bottom: 10px;'>
-        <input type='text' class='option option-box' name='login' placeholder='Имя или email'/>
+        <input type='text' class='option option-box' name='username' placeholder='Логин или Email' onchange='check_validity_combined(this)'/>
         <input type='password' class='option option-box' name='password' placeholder='Пароль'/>
         <div style='width: 100%;'>
         <a onclick='close_dropdown(this);' class='link hint' style='cursor: pointer'>Отмена</a>
-        <button type='submit' class='button' style='float: right;'>Войти</button>
+        <input type='hidden' name='reg' value='false'?>
+        <button type='submit' class='button' onclick='check_submit(this)' style='float: right;'>Войти</button>
+        <?php wp_enqueue_script( 'palichka-registration');?>
         </div>
       </div>
     </div>
