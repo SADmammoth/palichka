@@ -1,18 +1,36 @@
-function check_submit(button, signin = true) {
+function check_submit(form, signin = true) {
   event.preventDefault();
+  // form.onsubmit = () => event.preventDefault();
+  // form.submit = () => event.preventDefault();
   console.log(
-    button.form.login_validated,
-    button.form.email_validated,
-    signin || check_password(button)
+    form.login_validated,
+    form.email_validated,
+    signin || check_password(form.elements[0])
   );
-  if (signin || button.form.checkValidity()) {
-    if (
-      button.form.login_validated &&
-      button.form.email_validated &&
-      (signin || check_password(button))
-    ) {
-      alert(0);
-      document.createElement("form").submit.call(button.form);
+  if (signin || form.checkValidity()) {
+    if (form.login_validated && form.email_validated && (signin || check_password(form))) {
+      let data = new FormData(form);
+      if (data.get("reg") === "false") {
+        data.delete("email");
+      }
+      data = [...data].reduce((acc, el) => ((acc[el[0]] = el[1]), acc), {});
+      console.log(JSON.stringify(data));
+      fetch(form.action, {
+        method: "post",
+        "content-type": "application/json",
+        body: JSON.stringify(data)
+      }).then(result =>
+        result.json().then(response => {
+          user_message(response.message);
+          if (response.code === 200) {
+            if (form.elements["returnpath"]) {
+              document.location.href = form.elements["returnpath"];
+            } else {
+              document.location.reload();
+            }
+          }
+        })
+      );
     }
   } else {
     user_message("Заполните все поля");
@@ -28,14 +46,17 @@ async function check_validity(me) {
 }
 
 async function check_validity_combined(me) {
-  if (/.*@.*/.test(me.value)) {
-    me.form.email_validated = await check_email(me, true);
-    me.form.login_validated = await me.form.email_validated;
-  } else {
-    me.form.login_validated = await check_username(me, true);
-    me.form.email_validated = await me.form.login_validated;
-  }
-  setTimeout(hide_user_message, 0);
+  // if (/.*@.*/.test(me.value)) {
+  //   me.form.email_validated = await check_email(me, true);
+  //   alert(await me.form.email_validated);
+  //   me.form.login_validated = await me.form.email_validated;
+  // } else {
+  //   me.form.login_validated = await check_username(me, true);
+  //   me.form.email_validated = await me.form.login_validated;
+  // }
+  // setTimeout(hide_user_message, 0);
+  me.form.email_validated = true;
+  me.form.login_validated = true;
 }
 
 async function check_username(input, hide_message = true) {
@@ -49,9 +70,11 @@ async function check_username(input, hide_message = true) {
     }
   });
   let data = await response.json();
+
   if (data.userfound) {
     user_message("Имя пользователя уже занято");
     flag = false;
+    alert(data.userfound);
   } else if (hide_message) {
     hide_user_message();
   }
@@ -78,12 +101,12 @@ async function check_email(input, hide_message = true) {
   return flag;
 }
 
-function check_password(button) {
+function check_password(form) {
   event.preventDefault();
   let password = document.getElementById("password").value;
   if (password !== document.getElementById("repeat_password").value) {
     password_message("Пароли не совпадают");
-    button.form.password_validated = false;
+    form.password_validated = false;
     return false;
   }
   let password_reqexp = new RegExp(
@@ -103,29 +126,35 @@ function check_password(button) {
       <li>Содержит цифры и заглавные буквы</li>
       </ul>`
     );
-    button.form.password_validated = false;
+    form.password_validated = false;
     return false;
   }
   hide_password_message();
-  button.form.password_validated = true;
+  form.password_validated = true;
   return true;
 }
 
 function user_message(text) {
   let message = document.getElementById("user_error");
-  message.getElementsByClassName("message")[0].innerHTML = text;
-  message.classList.remove("hidden");
+  if (message) {
+    message.getElementsByClassName("message")[0].innerHTML = text;
+    message.classList.remove("hidden");
+  }
 }
 
 function hide_user_message() {
   let message = document.getElementById("user_error");
-  message.classList.add("hidden");
+  if (message) {
+    message.classList.add("hidden");
+  }
 }
 
 function password_message(text) {
   let message = document.getElementById("password_error");
-  message.getElementsByClassName("message")[0].innerHTML = text;
-  message.classList.remove("hidden");
+  if (message) {
+    message.getElementsByClassName("message")[0].innerHTML = text;
+    message.classList.remove("hidden");
+  }
   // setTimeout(() => {
   //   message.classList.add("hidden");
   // }, 3000);
@@ -133,5 +162,7 @@ function password_message(text) {
 
 function hide_password_message() {
   let message = document.getElementById("password_error");
-  message.classList.add("hidden");
+  if (message) {
+    message.classList.add("hidden");
+  }
 }
