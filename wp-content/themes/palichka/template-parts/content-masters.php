@@ -7,7 +7,7 @@
  */
 
  get_header();
-?>
+  ?>
  <section id='master-section'>
  <?php
  if(wp_get_current_user()->user_login === basename(get_permalink())):
@@ -23,9 +23,24 @@
           <div class='background'>
             <h1 class='h1-small'><?php echo the_title()?></h1>
           </div>
-          <p class='main-text hyphenated'>
-          <?php echo rwmb_meta('masters-desc')?>
+          <div class='main-text hyphenated'>
+          <p>
+          <?php echo rwmb_meta('masters-desc');
+          ?>
           </p>
+          <?php
+          if(is_user_logged_in()):
+          ?>
+          <p>
+            <form method="POST" action="<?php echo get_template_directory_uri()."/inc/like.php"?>">
+          <input id='best_master' class='like' name='liked' type="checkbox" onchange="like(this, <?php echo get_the_ID().', '.get_current_user_id()?>)" <?php if(get_user_meta(get_current_user_id(), 'liked_master', true) == get_the_ID())echo 'checked'?>/>
+          <label for='best_master'>Лучший мастер</label>
+          </form>
+          </p>
+          <?php 
+          wp_enqueue_script( 'palichka-like' );        
+        endif;?>
+          </div>
         </div>
       </div>
     </section>

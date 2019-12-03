@@ -331,6 +331,25 @@ strong {
   border-bottom: 1px solid var(--secondary-text-color);
 }
 
+.like {
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.like::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f005";
+  font-weight: 600;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--primary-text-color);
+  transition: 0.2s ease-out;
+}
+
+.like:checked::before {
+  color: var(--primary-text-color);
+  transition: 0.2s ease-out;
+}
+
 .ltblue-hover {
   color: inherit;
   transition: color 0.2s ease-in-out;
