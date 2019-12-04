@@ -26,6 +26,7 @@
           <div class='main-text hyphenated'>
           <p>
           <?php echo rwmb_meta('masters-desc');
+
           ?>
           </p>
           <?php
@@ -33,13 +34,13 @@
           ?>
           <p>
             <form method="POST" action="<?php echo get_template_directory_uri()."/inc/like.php"?>">
-          <input id='best_master' class='like' name='liked' type="checkbox" onchange="like(this, <?php echo get_the_ID().', '.get_current_user_id()?>)" <?php if(get_user_meta(get_current_user_id(), 'liked_master', true) == get_the_ID())echo 'checked'?>/>
-          <label for='best_master'>Лучший мастер</label>
+          <input id='best_master' class='like' name='liked' type="checkbox" onchange="like(this, <?php echo get_the_ID().', '.get_current_user_id()?>)" <?php if(in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'liked_masters', true))) echo 'checked'?>/>
+          <label for='best_master'><span class='like_counter'><?php echo count(get_post_meta(get_the_ID(), 'liked_by_users', true))?></span></label>
           </form>
           </p>
           <?php 
-          wp_enqueue_script( 'palichka-like' );        
-        endif;?>
+          wp_enqueue_script( 'palichka-like' );      
+          endif;?>
           </div>
         </div>
       </div>

@@ -6,25 +6,28 @@ if($fetch_request){
 }
 if(isset($_POST) && isset($_POST["liked"])){
   if($_POST['liked']){
-  update_user_meta( $_POST["user"], "liked_master", $_POST["post"]);
-  $arr = get_post_meta($_POST["post"], "liked_by_users", true);
-  if($arr == ''){
-    $arr = [];
+  $posts = get_user_meta( $_POST["user"], "liked_masters", true);
+  $users = get_post_meta($_POST["post"], "liked_by_users", true);
+  if($posts == '' || $posts == []){
+    $posts = [$_POST["post"]];
   }
-  if(!in_array($_POST["user"], $arr)){
-    if($arr != []){
-      $arr = array_merge($arr, $_POST["user"]);
-    }
-    else{
-      $arr = [$_POST["user"]];
-    }
-    update_post_meta( $_POST["post"], "liked_by_users", $arr);
+  else{
+    $posts = array_merge($posts, [$_POST['post']]);
   }
+  if($users == '' || $posts == []){
+    $users = [$_POST["user"]];
+  }
+  else{
+    $users = array_merge($users, [$_POST['user']]);
+  }
+  update_post_meta( $_POST["post"], "liked_by_users", $users);
+  update_user_meta( $_POST["user"], "liked_masters", $posts);
 }
   else{
-    update_user_meta($_POST["user"], 'liked_master', false); 
-    $arr = get_post_meta($_POST["post"], "liked_by_users", true);
-    update_post_meta( $_POST["post"], "liked_by_users", array_diff($arr, [$_POST["user"]]));
+    $posts = get_user_meta($_POST["user"], "liked_masters", true);
+    update_user_meta( $_POST["user"], "liked_masters", array_diff($posts, [$_POST["post"]]));
+    $users = get_post_meta($_POST["post"], "liked_by_users", true);
+    update_post_meta( $_POST["post"], "liked_by_users", array_diff($users, [$_POST["user"]]));
   }
 
  
@@ -49,7 +52,7 @@ if(isset($_POST) && isset($_POST["liked"])){
     if($i >= 2){
     break;
   }
-  echo print_r(get_post_meta($value->ID, 'liked_by_users', true));
+      get_post_meta($value->ID, 'liked_by_users', true);
       wp_set_post_terms($value->ID, 'bestmaster', 'masters_tag');
   $i++;
 }
