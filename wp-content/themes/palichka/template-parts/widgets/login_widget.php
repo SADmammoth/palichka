@@ -19,7 +19,7 @@ class LoginWidget extends WP_Widget {
       <div class='option-dropdown-content dropdown-content vertical-flex-block' style='width: 230%; padding-bottom: 10px;'>
         <input type='text' class='option option-box' name='username' placeholder='Логин или Email' onchange='check_validity_combined(this)'/>
         <input type='password' class='option option-box' name='password' placeholder='Пароль'/>
-        <div id='user_error' class='hint error-message hidden' style='width: 90%; margin-bottom: 5px;'>
+        <div class='user_message hint error-message hidden' style='width: 90%; margin-bottom: 5px;'>
         <i class='fas fa-times-circle' style='float: left; padding-right: 15px; clear: none;'></i>
         <span class='message' style='float: left; clear: none; width: 80%;'></span>
         </div>
@@ -39,10 +39,16 @@ class LoginWidget extends WP_Widget {
     <?php
     else:
     ?>
+    <div style='width: 200px'>
     <div class='hint' style='margin-top: 5px;'>Вы вошли, как</div>
     <div class='background additional-text' style=' margin-top: 2px; padding: 5px; padding-top: 0px;'>
-    <div><?php echo wp_get_current_user()->user_firstname?wp_get_current_user()->user_firstname:wp_get_current_user()->user_login ?></div>
+    <div>
+    <?php 
+    $name = wp_get_current_user()->user_firstname?wp_get_current_user()->user_firstname:wp_get_current_user()->user_login;
+    echo (strlen($name)>15)? substr($name, 0, 15).'...' : $name;?>
+    </div>
     <a class='link hint' style='text-align: right; width: 100%; display: block;' href='<?php echo wp_logout_url(get_site_url())?>'>Выход</a>
+    </div>
     </div>
     
     <?php
