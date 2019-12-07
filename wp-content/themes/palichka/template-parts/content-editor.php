@@ -11,6 +11,7 @@
 <form enctype="multipart/form-data" action='<?php echo get_permalink()?>' method='POST'>
  <section id='master-section'>
  
+ <input type='hidden' name='post_id' value='<?php get_current_user_id()?>'/>
  <div class='floating-btn'>
     <input type='hidden' name='edit' value=false />
     <button type='submit' style='background: none'><i class='fas fa-check pictogram'></i></button>

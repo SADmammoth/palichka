@@ -17,7 +17,6 @@ get_header();
         </div>
         </fieldset>
         <fieldset class='form-body' style='position: relative;'>
-
         <input class='form-input' name='password' id='password'type='password' placeholder='Пароль' required/>
         <input class='form-input<?php echo isset($_GET["signin"])?" hidden":""?>' id='repeat_password' type='password' placeholder='Повторите пароль' require/>
         <div id='password_error' class='hint error-message hidden' style='position: absolute; left: calc(100% + 10px); width: 80%; top: 10px;'>

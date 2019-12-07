@@ -56,7 +56,7 @@ async function check_validity_combined(me) {
   setTimeout(hide_user_message, 0);
 }
 
-async function check_username(input, hide_message = true) {
+async function check_username(input, hide_message = true, action_path = false) {
   let username = input.value;
   if (username !== "" && !/[a-zA-Z][a-zA-Z0-9_]{3,14}/.test(username)) {
     user_message(
@@ -70,7 +70,7 @@ async function check_username(input, hide_message = true) {
     return false;
   }
   let flag = true;
-  let response = await fetch(input.form.action, {
+  let response = await fetch(action_path || input.form.action, {
     method: "POST",
     body: JSON.stringify({ username: username }),
     headers: {
@@ -88,21 +88,21 @@ async function check_username(input, hide_message = true) {
   return flag;
 }
 
-async function check_email(input, hide_message = true) {
+async function check_email(input, hide_message = true, action_path = false) {
   let email = input.value;
-  if (email !== "" && !/[a-zA-Z][a-zA-Z0-9_.-]*@[a-zA-Z0-9_.-]+.[a-z]+/.test(email)) {
+  if (email !== "" && !/^[a-zA-Z][a-zA-Z0-9_.-]*@[a-zA-Z0-9_.-]+.[a-z]+$/.test(email)) {
     user_message(input.form, `Введите правильный Email`);
     return false;
   }
   let flag = true;
-  let response = await fetch(input.form.action, {
+  let response = await fetch(action_path || input.form.action, {
     method: "POST",
     body: JSON.stringify({ email: email }),
     headers: {
       "Content-Type": "application/json"
     }
   });
-  let data = response.json();
+  let data = await response.json();
   if (data.userfound) {
     user_message(input.form, "Email уже зарегистрирован");
     flag = false;

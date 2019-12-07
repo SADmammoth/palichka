@@ -44,12 +44,12 @@ get_header();
             'post_title'     => preg_replace( '/\.[^.]+$/', '', $photo['name']),
             'post_content'   => '',
             'post_status'    => 'inherit',
-          ), $new_file_path , get_the_ID());
+          ), $new_file_path , $_POST['post_id']);
           require_once( ABSPATH . 'wp-admin/includes/image.php' );
           wp_update_attachment_metadata( $upload_id, wp_generate_attachment_metadata( $upload_id, $new_file_path ) );
         }
         }
-        wp_update_post(['ID'=> get_the_ID(), 'post_type' => 'masters', 'post_title'=>$_POST['title'], 
+        wp_update_post(['ID'=> $_POST['post_id'], 'post_type' => 'masters', 'post_title'=>$_POST['title'], 
         'meta_input'=>array('masters-photo'=>$upload_id, 'masters-desc'=>$_POST['desc'])], false);
         ?>
         <script>
