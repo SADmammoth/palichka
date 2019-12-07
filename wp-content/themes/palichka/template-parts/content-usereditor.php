@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" action='<?php echo get_permalink()."?edit=false"?>' method='POST' onsubmit='event.preventDefault(); if((this.email_validated || this.email_validated === undefined)&&(this.age_validated || this.age_validated === undefined)){this.submit();}'>
+<form id='userform' enctype="multipart/form-data" action='<?php echo get_permalink()."?edit=false"?>' method='POST' onsubmit='event.preventDefault(); if((this.email_validated || this.email_validated === undefined)&&(this.age_validated || this.age_validated === undefined)){this.submit();}'>
 <section id='master-section'>
  <?php
  $user = wp_get_current_user();
@@ -91,18 +91,50 @@
     </section>
     <section>
     <h2 class='background wide-toleft'>Ваш отзыв</h2>
-    <div class='vertical-flex-block wide-toleft background' style='margin-bottom: 30px' style='justify-content: center;'>
-        <?php
-        $query = new WP_Query([
-          'author'=> get_current_user()->ID,
+    <div id='reviewsection' class='vertical-flex-block wide-toleft background' style='margin-bottom: 30px' style='justify-content: center;'>
+        <script>
+        let form = document.getElementById('userform');
+        if(form.checkValidity() && (this.email_validated || this.email_validated === undefined)&&(this.age_validated || this.age_validated === undefined)){
+          document.getElementById('reviewsection').innerHTML = `
+          <?php
+          $query = new WP_Query([
+          'author'=> get_current_user_id()===1?'any':get_current_user_id(),
           'post_status' => 'any',
           'post_type'=>'review',
-        ]);
-        while($query->have_posts()){
-          $query->the_post();
-          get_template_part('template-parts/review-card');
+          ]);
+          if(!$query->have_posts()){
+          while($query->have_posts()){
+            $query->the_post();
+            ?>
+            <p class='additional-text'><?php echo the_title()?></p>
+            <label
+              for="'review_<?php echo get_the_ID()?>'"
+                  class="additional-text"
+                  style="font-size: 1.5rem; margin: 5px 2px"
+                >
+                <i class="fas fa-edit"></i>
+                </label>
+            <textarea id='review_<?php echo get_the_ID()?>' name='review_<?php echo get_the_ID()?>' class='option-box option' style='resize: none; height: 70px' rows='3' cols='70'><?php echo rwmb_meta('review-body')?></textarea>
+            <?php
+          }
+          }
+          else{
+            ?>
+            <label
+              for="review_new"
+                  class="additional-text"
+                  style="font-size: 1.5rem; margin: 5px 2px"
+                >
+                <i class="fas fa-edit"></i>
+                Текст отзыва
+                </label>
+            <textarea id='review_new' name='review_new'  class='option-box option' style='resize: none; height: 70px' rows='3' cols='70'></textarea>
+            <?php
+          }
+          ?>
+          `
         }
-        ?>
+        </script>
     </div>
     </section>
       </form>
