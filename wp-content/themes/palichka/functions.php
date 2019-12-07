@@ -162,6 +162,11 @@ function ts_hide_pages_in_wp_admin($query) {
     }
 }
 
+function get_current_user_avatar(){
+  global $wpdb;
+  return wp_get_attachment_image_src(get_user_meta(get_current_user_id(), $wpdb->get_blog_prefix() . 'user_avatar', true))[0];
+}
+
 require get_template_directory() . '/inc/post_types_and_terms.php';
 require get_template_directory() . '/inc/register_sidebars.php';
 /**

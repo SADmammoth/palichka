@@ -23,31 +23,30 @@ get_header();
             if(isset($_POST['word_about'])){
               update_user_meta($_POST['user_id'], 'word_about', $_POST['word_about']);
             }
-            echo print_r($_FILES);
             if(isset($_FILES['photo'])){
               $photo = $_FILES['photo'];
-        if(strpos($photo['type'], 'image/') !== false){
-        $wordpress_upload_dir = wp_upload_dir();
+              if(strpos($photo['type'], 'image/') !== false){
+                  $wordpress_upload_dir = wp_upload_dir();
         
-        $i = 1;
-        $new_file_path = $wordpress_upload_dir['path'] . '/' . $photo['name'];
-        while( file_exists( $new_file_path ) ) {
-          $i++;
-          $new_file_path = $wordpress_upload_dir['path'] . '/' . $i . '_' . $photo['name'];
-        }
-        if( move_uploaded_file( $photo['tmp_name'], $new_file_path ) ) {
+                  $i = 1;
+                  $new_file_path = $wordpress_upload_dir['path'] . '/' . $photo['name'];
+                  while( file_exists( $new_file_path ) ) {
+                    $i++;
+                    $new_file_path = $wordpress_upload_dir['path'] . '/' . $i . '_' . $photo['name'];
+                  }
+                  if( move_uploaded_file( $photo['tmp_name'], $new_file_path ) ) {
        
-          $upload_id = wp_insert_attachment( array(
-            'guid'           => $new_file_path, 
-            'post_mime_type' =>  $photo['type'],
-            'post_title'     => preg_replace( '/\.[^.]+$/', '', $photo['name']),
-            'post_content'   => '',
-            'post_status'    => 'inherit',
-          ), $new_file_path , $_POST['user_id']);
-          require_once( ABSPATH . 'wp-admin/includes/image.php' );
-          wp_update_attachment_metadata( $upload_id, wp_generate_attachment_metadata( $upload_id, $new_file_path ) );
-        }
-        update_user_meta($_POST['user_id'], 'user_avatar', $upload_id);
+                  $upload_id = wp_insert_attachment( array(
+                    'guid'           => $new_file_path, 
+                    'post_mime_type' =>  $photo['type'],
+                    'post_title'     => preg_replace( '/\.[^.]+$/', '', $photo['name']),
+                    'post_content'   => '',
+                    'post_status'    => 'inherit',
+                  ), $new_file_path , $_POST['user_id']);
+                  require_once( ABSPATH . 'wp-admin/includes/image.php' );
+                  wp_update_attachment_metadata( $upload_id, wp_generate_attachment_metadata( $upload_id, $new_file_path ) );
+                  }
+              update_user_meta($_POST['user_id'], $wpdb->get_blog_prefix() . 'user_avatar', $upload_id);
         }
             }
             $user = get_user_by( 'id', $_POST['user_id'] );
@@ -66,7 +65,6 @@ get_header();
                   'review-age'=>get_user_meta($user->ID, 'age', true),
                   'review-body'=>$value]]);
                   wp_update_post(['ID'=>$id, 'post_status'=>'pending']);
-                  echo $id;
                 }else{
                   $old_value = str_replace("\"", "\\\"", get_post_meta($new, 'review-body', true));
                   $old_value = str_replace("\'", "\\\'", $old_value);
@@ -80,9 +78,9 @@ get_header();
           }
           wp_update_user($_POST['user_id'], $args);
           ?>
-          // <script>
-          // document.location.href='<?php echo get_site_url().'/user'?>';
-          // </script>
+          <script>
+          document.location.href='<?php echo get_site_url().'/user'?>';
+          </script>
           <?php
         }
       }

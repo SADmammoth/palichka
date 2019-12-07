@@ -7,7 +7,7 @@
     <button type='submit' style='background: none'><i class='fas fa-edit pictogram'></i></button>
 </form>
     <div class='container horizontal-flex-block' style='margin-bottom: 20px; position: relative; justify-content: flex-start;'>
-      <img class='photo' width='200' height='200'  src='<?php echo get_avatar_url($user)?get_avatar_url($user):get_site_url().'/wp-content/uploads/2019/08/tablero-de-paleta-de-pintura-con-contorno-de-pincel.png'?>' alt='<?php echo the_title()?>' title='<?php echo the_title() ?>' />
+      <img class='photo' width='200' height='200'  src='<?php echo get_current_user_avatar()?get_current_user_avatar():get_site_url().'/wp-content/uploads/2019/08/tablero-de-paleta-de-pintura-con-contorno-de-pincel.png'?>' alt='<?php echo the_title()?>' title='<?php echo the_title() ?>' />
         <div class='master-description'>
           <div class='background'>
             <h1 class='h1-small'>
