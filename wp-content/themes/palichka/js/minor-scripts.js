@@ -1,4 +1,4 @@
-function close_dropdown(el) {
+function close_dropdown(el, cancel = false) {
   let curr = el;
 
   while (!curr.classList.contains("dropdown")) {
@@ -6,8 +6,11 @@ function close_dropdown(el) {
   }
   // console.log(curr.querySelector('.dropdown-trigger'));
   curr.querySelector(".dropdown-trigger").checked = false;
-  curr.querySelector(".dropdown-trigger").form.reset();
-  // el.form.submit();
+  if (!cancel) {
+    el.form.submit();
+  } else {
+    curr.querySelector(".dropdown-trigger").form.reset();
+  }
 }
 
 function show_additional_gallery(button, gallery_id, ...items_to_hide) {

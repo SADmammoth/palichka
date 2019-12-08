@@ -78,7 +78,7 @@ function get_the_archive_template($post_type)
   ob_start();
   ?><aside class='sidebar background insidelayout-fromright desktop'>
          <div class='options'>
-           <form  id='sortby-form' action='' method='GET' id='search-form' class='option'>
+           <form  id='search-form' action='' method='GET' id='search-form' class='option'>
              <label for='search'><i class='fas fa-search pictogram'></i></label>
              <input id='search' onchange='this.form.submit()' class='option-box' name='search' type='search' placeholder='Поиск'
              value='<?php echo !empty($_GET['search']) ? $_GET['search'] : ''; ?>'
@@ -88,15 +88,7 @@ function get_the_archive_template($post_type)
              <label for='sortby'><i class='fas fa-sort-amount-up pictogram'></i>Сортировка</label>
              <input id='sortby' class='common-dropdown dropdown-trigger pictogram' type='checkbox'>
              <ul class='option-dropdown-content dropdown-content vertical-flex-block'>
-             <li class='vflex-item'>
-                 <input onclick='setTimeout(close_dropdown, 300, this); ' id='sort_order' name='order' value='DESC' type='radio'
-                  <?php echo !empty($_GET['order'])
-                    ? ($_GET['order'] == 'DESC'
-                      ? 'checked'
-                      : '')
-                    : ''; ?>>
-                 <label for='sort_order'>Интвертировать</label>
-               </li>
+           
                <li class='vflex-item'>
                  <input onclick='setTimeout(close_dropdown, 300, this); ' id='sort_byname' name='sortby' value='title' type='radio' 
                  <?php echo !empty($_GET['sortby'])
@@ -116,8 +108,21 @@ function get_the_archive_template($post_type)
                     : ''; ?>>
                  <label for='sort_bytime '>По дате добавления</label>
                </li>
+               <hr class='divider vflex-item'></hr>
+               <li class='vflex-item'>
+                 <input onclick='setTimeout((input)=>{close_dropdown(input); input.form.submit()}, 300, this); ' id='sort_order' name='order' value='DESC' type='checkbox'
+                  <?php echo !empty($_GET['order'])
+                    ? ($_GET['order'] == 'DESC'
+                      ? 'checked'
+                      : '')
+                    : ''; ?>>
+                 <label for='sort_order'>Интвертировать</label>
+               </li>
              </ul>
            </form>
+           <?php
+           $tags = get_terms($post_type . '_tag');
+           if (!is_wp_error($tags) && count($tags) > 0): ?>
            <form id='filter-form' action='' method='GET' class='option-box option dropdown'>
              <label for='filter'><i class='fas fa-filter pictogram'></i>Фильтр</label>
              <input id='filter' class='common-dropdown dropdown-trigger pictogram' type='checkbox'>
@@ -132,9 +137,7 @@ function get_the_archive_template($post_type)
                  <label for='no_filter '>Нет фильтра</label>
  
                </li>
-                 <?php
-                 $tags = get_terms('post_tag');
-                 foreach ($tags as $one_tag) { ?>
+                 <?php foreach ($tags as $one_tag) { ?>
                  <li class='vflex-item'>
                  <input onclick='setTimeout(close_dropdown, 300, this);' id='filter_<?php echo $one_tag->slug; ?>' name='filter' value='<?php echo $one_tag->slug; ?>' type='radio'
                  <?php echo !empty($_GET['filter'])
@@ -144,10 +147,11 @@ function get_the_archive_template($post_type)
                    : ''; ?>>
                  <label for='filter_<?php echo $one_tag->slug; ?>'><?php echo $one_tag->name; ?></label>
                  </li>
-                 <?php }
-                 ?>
+                 <?php } ?>
              </div>
            </form>
+                 <?php endif;
+           ?>
          </div>
          </div>
        </aside>

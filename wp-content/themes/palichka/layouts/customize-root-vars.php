@@ -29,7 +29,7 @@ $common_text_color = get_theme_mod('common_text_color');
     echo $shadow_color;
     echo $shadow_opacity;
     ?>;
-    --shadow: 2px 2px 4px var(--shadow-color);
+    --shadow: 2px 4px 6px var(--shadow-color);
     --error-bg: #ff8269c4;
     --error-color: #802d18;
     /*Typography*/

@@ -17,11 +17,11 @@ class LoginWidget extends WP_Widget
 <form action='<?php echo get_template_directory_uri() .
   '/inc/users.php'; ?>' method='POST' class='background'
   style='margin-top: -8px;' onsubmit='check_submit(this)'>
-  <div class='dropdown' style='padding: 0 5px;'>
+  <div class='dropdown' style='padding: 0 5px; margin-left: 25px'>
     <label class='link additional-text' for='signin'>Войти</label>
     <input id='signin' class='common-dropdown dropdown-trigger' type='checkbox' />
     <div class='option-dropdown-content dropdown-content vertical-flex-block'
-      style='width: 230%; padding-bottom: 10px;'>
+      style='width: 240%; left: -125px; padding-bottom: 10px;'>
       <input type='text' class='option option-box' name='username' placeholder='Логин или Email'
         onchange='check_signin(this)' />
       <input type='password' class='option option-box' name='password' placeholder='Пароль' />
@@ -30,7 +30,7 @@ class LoginWidget extends WP_Widget
         <span class='message' style='float: left; clear: none; width: 80%;'></span>
       </div>
       <div style='width: 100%;'>
-        <a onclick='close_dropdown(this);' class='link hint' style='cursor: pointer'>Отмена</a>
+        <a onclick='close_dropdown(this, true);' class='link hint' style='cursor: pointer'>Отмена</a>
         <input type='hidden' name='reg' value='false'>
         <input type='hidden' name='redirectpath' value=''>
         <button type='submit' class='button' style='float: right;'>Войти</button>
@@ -44,18 +44,16 @@ class LoginWidget extends WP_Widget
     '/register'; ?>' style='margin: 0 5px;' class='link hint'>Зарегистрироваться</a>
 </div>
 <?php else: ?>
-<div style='width: 200px'>
+<div style='width: 200px; max-height: 80px; box-sizing: border-box;'>
   <div class='hint' style='margin-top: 5px;'>Вы вошли, как</div>
-  <div class='background additional-text' style=' margin-top: 2px; padding: 5px; padding-top: 0px;'>
-    <div>
-      <?php
-      $name = wp_get_current_user()->user_firstname
-        ? wp_get_current_user()->user_firstname
-        : wp_get_current_user()->user_login;
-      echo strlen($name) > 15 ? substr($name, 0, 15) . '...' : $name;
-      ?>
-    </div>
-    <a class='link hint' style='text-align: right; width: 100%; display: block;'
+  <div class='background additional-text' style='margin-top: 2px; padding: 5px; padding-top: 25px; width: 100%; position: relative;'>
+    <strong class='link' style='position: absolute; top: 2px; left: 50%; transform: translateX(-50%)'><?php
+    $name = wp_get_current_user()->user_firstname
+      ? wp_get_current_user()->user_firstname
+      : wp_get_current_user()->user_login;
+    echo strlen($name) > 15 ? substr($name, 0, 15) . '...' : $name;
+    ?></strong>
+    <a class='hint' style='text-align: center; width: 100%; display: block; padding-top: 8px;'
       href='<?php echo wp_logout_url(get_site_url()); ?>'>Выход</a>
   </div>
 </div>

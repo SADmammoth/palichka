@@ -179,6 +179,14 @@ strong {
   color: var(--primary-text-color);
 }
 
+.divider {
+  border-bottom: var(--divider);
+  border-width: 1px;
+  margin-top: 0;
+  padding: 0;
+  width: 100%;
+}
+
 /* Generic flex-boxes and navigation*/
 
 .horizontal-flex-block {
@@ -323,6 +331,7 @@ strong {
   border-bottom: 1px solid var(--secondary-text-color);
   color: var(--secondary-text-color);
   font-weight: 600;
+  cursor: pointer;
 }
 
 .link:hover {
@@ -425,10 +434,11 @@ strong {
   border-radius: 100%;
   margin-right: 10px;
   box-shadow: var(--shadow);
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  margin-top: 10px;
+  margin-top: 15px;
+  margin-left: -10px;
 }
 
 .sitename {
@@ -549,7 +559,6 @@ strong {
 .dropdown > .dropdown-content {
   position: absolute;
   top: 0;
-  margin-top: 20px;
   padding: 5px;
   z-index: 99999;
   padding-bottom: 20px;
@@ -654,6 +663,7 @@ strong {
   top: 90px;
   max-height: 90vh;
   height: 100%;
+  padding: 15px;
 }
 
 .option-box {
@@ -764,6 +774,29 @@ textarea {
   width: 500px;
 }
 
+input[type="checkbox"]:not(.dropdown-trigger) {
+  -webkit-appearance: none;
+  outline: none;
+}
+
+input[type="checkbox"]:not(.dropdown-trigger):not(.hidden):checked::before {
+  content: "\f14a";
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 0.99rem;
+  font-display: auto;
+}
+
+input[type="checkbox"]:not(.dropdown-trigger):not(.hidden)::before {
+  content: "\f0c8";
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
+  color: var(--primary-text-color);
+}
+
 input[type="radio"] {
   -webkit-appearance: none;
   outline: none;
@@ -846,9 +879,8 @@ header .container {
 
 .header-nav li {
   width: 100%;
-  padding: 2% 0;
   box-sizing: border-box;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-out;
   background: var(--background);
   margin: 0 !important;
   text-align: center;
@@ -891,9 +923,13 @@ header .container {
   transition: all 0.1s ease;
 }
 
+.header-nav a {
+  padding: 8% 0;
+  display: block;
+}
 .header-nav li:hover {
   background: var(--light-background);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in;
 }
 
 @media screen and (max-width: 1000px) {
