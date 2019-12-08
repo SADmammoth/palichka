@@ -29,11 +29,12 @@
         <form method="POST" action="<?php echo get_template_directory_uri() . "/inc/like.php"; ?>"> 
           <input id='best_master_<?php echo get_the_ID(); ?>' class='like' name='liked' type="checkbox" onchange="like(this, <?php echo get_the_ID() .
   ', ' .
-  get_current_user_id(); ?>)" <?php if (
-  in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'liked_masters', true))
-) {
+  get_current_user_id(); ?>)" <?php
+$arr = get_user_meta(get_current_user_id(), 'liked_masters', true);
+if (is_array($arr) && in_array(get_the_ID(), $arr)) {
   echo 'checked';
-} ?> />
+}
+?> />
           <label for='best_master_<?php echo get_the_ID(); ?>'><span class='like_counter'><?php
 $arr = get_post_meta(get_the_ID(), 'liked_by_users', true);
 echo is_array($arr) ? count(get_post_meta(get_the_ID(), 'liked_by_users', true)) : 0;
