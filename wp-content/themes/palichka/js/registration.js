@@ -21,7 +21,7 @@ function check_submit(form, signin = true) {
         body: JSON.stringify(data)
       }).then(result =>
         result.json().then(response => {
-          user_message(response.message);
+          user_message(form, response.message);
           if (response.code === 200) {
             if (form.elements["returnpath"]) {
               document.location.href = form.elements["returnpath"];
@@ -33,7 +33,7 @@ function check_submit(form, signin = true) {
       );
     }
   } else {
-    user_message(input.form, "Заполните все поля");
+    user_message(form, "Заполните все поля");
   }
 }
 
@@ -54,6 +54,12 @@ async function check_validity_combined(me) {
     me.form.email_validated = await me.form.login_validated;
   }
   setTimeout(hide_user_message, 0);
+}
+
+function check_signin(me){
+  me.form.email_validated = true;
+  me.form.login_validated = true;
+  me.form.password_validated = true;
 }
 
 async function check_username(input, hide_message = true, action_path = false) {

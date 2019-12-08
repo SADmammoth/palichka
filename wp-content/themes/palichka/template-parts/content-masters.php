@@ -35,7 +35,7 @@
           <p>
             <form method="POST" action="<?php echo get_template_directory_uri()."/inc/like.php"?>">
           <input id='best_master' class='like' name='liked' type="checkbox" onchange="like(this, <?php echo get_the_ID().', '.get_current_user_id()?>)" <?php if(in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'liked_masters', true))) echo 'checked'?>/>
-          <label for='best_master'><span class='like_counter'><?php echo count(get_post_meta(get_the_ID(), 'liked_by_users', true))?></span></label>
+          <label for='best_master'><span class='like_counter'><?php $arr = get_post_meta(get_the_ID(), 'liked_by_users', true); echo is_array($arr)?count(get_post_meta(get_the_ID(), 'liked_by_users', true)):0?></span></label>
           </form>
           </p>
           <?php 

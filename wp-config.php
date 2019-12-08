@@ -27,7 +27,7 @@ define('DB_NAME', 'palichka');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD','Vfrc200018mysql');
+define('DB_PASSWORD', 'Vfrc200018mysql');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -59,14 +59,14 @@ $table_prefix = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define( 'WP_DEBUG', false );
+define('WP_DEBUG', false);
 
 /* Это всё, дальше не редактируем. Успехов! */
 
 /** Абсолютный путь к директории WordPress. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+if (!defined('ABSPATH')) {
+    define('ABSPATH', dirname(__FILE__) . '/');
 }
 
 /** Инициализирует переменные WordPress и подключает файлы. */
-require_once( ABSPATH . 'wp-settings.php' );
+require_once ABSPATH . 'wp-settings.php';

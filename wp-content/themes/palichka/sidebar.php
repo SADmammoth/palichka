@@ -7,11 +7,10 @@
  * @package palichka
  */
 
-if ( ! is_active_sidebar( 'main-content' ) ) {
-	return;
-}
-?>
+if (!is_active_sidebar('main-content')) {
+  return;
+} ?>
 
 <aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'main-content' ); ?>
+	<?php dynamic_sidebar('main-content'); ?>
 </aside><!-- #secondary -->

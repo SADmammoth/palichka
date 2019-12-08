@@ -9,7 +9,7 @@ get_header();
        onsubmit="check_submit(this, <?php echo isset($_GET['signin'])?'true':'false'?>);">
       <h2 style='margin-bottom: -5px; padding-top: 20px;'><?php echo isset($_GET["signin"])?"Вход":"Регистрация"?></h2>
       <fieldset class='form-head' style='position: relative;'>
-        <input class='form-input' id='name' name='username' type='text' placeholder='Логин<?php echo isset($_GET["signin"])?" или Email":""?>' onchange='<?php echo isset($_GET["signin"])?"check_validity_combined(this)":"check_validity(this)"?>' required/>
+        <input class='form-input' id='name' name='username' type='text' placeholder='Логин<?php echo isset($_GET["signin"])?" или Email":""?>' onchange='<?php echo isset($_GET["signin"])?"check_signin(this)":"check_validity(this)"?>' required/>
         <input class='form-input<?php echo isset($_GET["signin"])?" hidden":""?>' name='email' type='email' placeholder='Email'  onchange='check_validity(this)' require/>
         <div class='user_message hint error-message hidden' style='position: absolute; left: calc(100% + 10px); width: 80%; top: 10px;'>
         <i class='fas fa-times-circle' style='float: left; padding-right: 15px; clear: none;'></i>

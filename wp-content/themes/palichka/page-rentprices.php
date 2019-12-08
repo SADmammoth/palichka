@@ -2,15 +2,14 @@
 /**
  * Template name: Аренда
  * Template Post Type: page
- * 
+ *
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package palichka
  */
 
-get_header();
-?>
+get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
@@ -18,18 +17,21 @@ get_header();
       <div class='container'>
         <section class='leftside-section'>
           <p class='main-text hyphenated'>
-          <?php echo get_theme_mod('rent-desc');?>
+          <?php echo get_theme_mod('rent-desc'); ?>
           </p>
           <ul class='quote notype-list'>
-          <?php $prices = get_theme_mod('rent_price_list');
-          foreach($prices as $price){
-            ?>
+          <?php
+          $prices = get_theme_mod('rent_price_list');
+          foreach ($prices as $price) { ?>
              <li>
-              <strong class="price"><?php echo $price['value']?> BYN/мес <em class='discount'><?php if( $price['discount'] !== ''){ echo '-'.$price['discount'].'%';}?></em></strong>
-              <p class='description'><?php echo $price['desc']?></p>
+              <strong class="price"><?php echo $price[
+                'value'
+              ]; ?> BYN/мес <em class='discount'><?php if ($price['discount'] !== '') {
+   echo '-' . $price['discount'] . '%';
+ } ?></em></strong>
+              <p class='description'><?php echo $price['desc']; ?></p>
             </li>
-            <?php
-          }
+            <?php }
           ?>
           </ul>
             <p class='description' style='display: inline-block;'>Для получения подробной информации, воспользуйтесь <strong>формой обратной связи</strng>
@@ -38,7 +40,7 @@ get_header();
         </section>
 
         <section class='rightside-section'>
-        <form id='feedback-form' action='<?php echo get_template_directory_uri()?>/inc/sendmail_post.php' method='POST' >
+        <form id='feedback-form' action='<?php echo get_template_directory_uri(); ?>/inc/sendmail_post.php' method='POST' >
             <input type='text' name='page' value='rentprices' style='display: none'>
             <fieldset class='form-head'>
               <input id='feedback-email' class='form-input' type='email' name='email' placeholder='Email *' required/>
@@ -63,5 +65,4 @@ get_header();
       </div>
     </main>
   </div>
-<?php
-get_footer();
+<?php get_footer();
