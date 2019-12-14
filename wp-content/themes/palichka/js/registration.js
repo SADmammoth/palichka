@@ -56,7 +56,7 @@ async function check_validity_combined(me) {
   setTimeout(hide_user_message, 0);
 }
 
-function check_signin(me){
+function check_signin(me) {
   me.form.email_validated = true;
   me.form.login_validated = true;
   me.form.password_validated = true;
@@ -96,7 +96,12 @@ async function check_username(input, hide_message = true, action_path = false) {
 
 async function check_email(input, hide_message = true, action_path = false) {
   let email = input.value;
-  if (email !== "" && !/^[a-zA-Z][a-zA-Z0-9_.-]*@[a-zA-Z0-9_.-]+.[a-z]+$/.test(email)) {
+  if (
+    email !== "" &&
+    !/^[a-zA-Z][a-zA-Z0-9_.-]*@(?:(?!(?:[^-]*-{2,}[^-]))[a-z0-9-]{2,255})\.(?:[a-zа-я]{2,10})$/.test(
+      email
+    )
+  ) {
     user_message(input.form, `Введите правильный Email`);
     return false;
   }
