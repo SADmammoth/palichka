@@ -15,18 +15,22 @@ if ($_POST["reg"] === 'false') {
   }
 } elseif (
   (isset($_POST["username"]) && get_user_by('login', $_POST["username"])) ||
-  (isset($_POST["email"]) && get_user_by('email', $_POST["email"]))
+  ((isset($_POST["email"]) && get_user_by('email', $_POST["email"])) ||
+    (isset($_POST["username"]) && postslug_exists($_POST["username"])))
 ) {
   if (!$_POST["reg"]) {
     echo '{"code": 200, "message":"Request succesful", "userfound": true}';
   } else {
-    http_response_code(500);
-    echo '{"code": 500, "message":"User already exists"}';
+    echo '{"code": 403, "message":"User already exists"}';
   }
 } else {
   if (!$_POST["reg"]) {
     echo '{"code": 200, "message":"Request succesful", "userfound": false}';
   } else {
+    if (postslug_exists($_POST["username"])) {
+      echo '{"code": 403, "message":"User already exists"}';
+      return;
+    }
     $user_id = wp_create_user($_POST["username"], $_POST["password"], $_POST["email"]);
     $user = new WP_User($user_id);
     $user->set_role('subscriber');
@@ -35,4 +39,8 @@ if ($_POST["reg"] === 'false') {
       '}';
     // header('Location: '.get_site_url().'/register/?signin="true"');
   }
+}
+function postslug_exists($name)
+{
+  return get_posts(['post_name' => $name]) . length !== 0;
 } ?>
