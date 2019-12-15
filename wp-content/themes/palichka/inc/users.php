@@ -39,8 +39,4 @@ if ($_POST["reg"] === 'false') {
       '}';
     // header('Location: '.get_site_url().'/register/?signin="true"');
   }
-}
-function postslug_exists($name)
-{
-  return get_posts(['post_name' => $name]) . length !== 0;
 } ?>

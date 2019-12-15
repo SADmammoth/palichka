@@ -2,6 +2,9 @@
 if (!is_user_logged_in()) {
   wp_redirect(get_site_url() . '/404');
 }
+if (postslug_exists(wp_get_current_user()->user_login)) {
+  wp_redirect(get_site_url() . '/' . wp_get_current_user()->user_login);
+}
 get_header();
 ?>
 	<div id="primary" class="content-area">

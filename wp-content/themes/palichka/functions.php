@@ -246,6 +246,12 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
   require get_template_directory() . '/inc/jetpack.php';
 }
+
+function postslug_exists($name)
+{
+  return get_posts(['post_name' => $name]) . length !== 0;
+}
+
 require get_template_directory() . '/template-parts/widgets/articles_grid_widget.php';
 require get_template_directory() . '/template-parts/widgets/get_widget.php';
 require get_template_directory() . '/template-parts/widgets/topics_grid_widget.php';
