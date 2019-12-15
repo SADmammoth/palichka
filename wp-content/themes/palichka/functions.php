@@ -249,7 +249,7 @@ if (defined('JETPACK__VERSION')) {
 
 function postslug_exists($name)
 {
-  return get_posts(['post_name' => $name]) . length !== 0;
+  return count(get_posts(['name' => $name, 'post_type' => 'any'])) !== 0;
 }
 
 require get_template_directory() . '/template-parts/widgets/articles_grid_widget.php';

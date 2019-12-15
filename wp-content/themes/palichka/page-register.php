@@ -3,7 +3,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
      <h1 class='h1-small background wide-toleft'>Добро пожаловать на "Сваю Палiчку"!</h1>
-     <section id ='main-section'>
+     <section id ='main-section' style='min-height: 20vw; height: auto; padding-bottom: 50px;'>
       <form id='registration-form' action='<?php echo get_template_directory_uri() .
         '/inc/users.php'; ?>' method='POST' class='insidelayout-fromleft'
        onsubmit="check_submit(this, <?php echo isset($_GET['signin']) ? 'true' : 'false'; ?>);">
