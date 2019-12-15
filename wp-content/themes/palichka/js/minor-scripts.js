@@ -1,4 +1,4 @@
-function close_dropdown(el, cancel = false) {
+function close_dropdown(el, cancel = false, submit = true) {
   let curr = el;
 
   while (!curr.classList.contains("dropdown")) {
@@ -6,9 +6,10 @@ function close_dropdown(el, cancel = false) {
   }
   // console.log(curr.querySelector('.dropdown-trigger'));
   curr.querySelector(".dropdown-trigger").checked = false;
-  if (!cancel) {
+  if (submit) {
     el.form.submit();
-  } else {
+  }
+  if (cancel) {
     curr.querySelector(".dropdown-trigger").form.reset();
   }
 }
@@ -19,7 +20,6 @@ function show_additional_gallery(button, gallery_id, ...items_to_hide) {
     if (typeof item === "string") {
       document.body.querySelector(item).classList.add("hidden");
     } else {
-      console.log(item);
       item.classList.add("hidden");
     }
   });

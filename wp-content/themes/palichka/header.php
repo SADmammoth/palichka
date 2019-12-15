@@ -37,7 +37,7 @@
           'add_li_class' => 'nav-item hflex-item'
         )); ?>
 
-      <div class='social-nav-container'>
+      <div class='social-nav-container desktop'>
         <?php dynamic_sidebar('header-widget'); ?>
       </div>
         <!-- <nav class='social-nav-container desktop'>
@@ -60,14 +60,10 @@
               'add_li_class' => 'nav-item vflex-item'
             )); ?>
                  
-          <?php wp_nav_menu(array(
-            'theme_location' => 'social-header',
-            'menu_class' => 'social-nav horizontal-flex-block',
-            'container' => 'nav',
-            'container_class' => 'social-nav horizontal-flex-block',
-            'add_li_class' => 'hflex-item'
-          )); ?>
-              <a onclick='close_dropdown(this);' class='close-dropdown pictogram'><i class='fas fa-times'></i></a>
+          <div style='margin: 10px auto; width: 100%; margin-right: -5px'>
+           <?php dynamic_sidebar('header-widget'); ?>
+        </div>
+              <a onclick='close_dropdown(this, false, false);' class='close-dropdown pictogram'><i class='fas fa-times'></i></a>
             </div>
           </div>
         </div>

@@ -50,6 +50,16 @@ ul {
   .desktop {
     display: none;
   }
+
+  .handheld-fullwidth {
+    width: 90vw !important;
+    padding-left: 20px !important;
+    margin-left: -10px !important;
+  }
+
+  .login-widget {
+    width: 80% !important;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -75,6 +85,7 @@ html {
 
 body {
   background: var(--light-background);
+  overflow-x: hidden;
 }
 
 .h1 {
@@ -241,6 +252,11 @@ strong {
   background: var(--buttons-color);
   border-radius: 5px;
   transition: background 0.3s ease-in-out;
+}
+
+.button,
+[type="button"],
+[type="submit"] {
   outline: none;
   border: none;
 }
@@ -277,8 +293,12 @@ strong {
   padding-top: 14px;
 }
 
+.floating-btn .burger-icon,
 .floating-btn i {
   width: 30px;
+  height: 20px;
+  margin-left: 2px;
+  margin-bottom: 3px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -341,21 +361,21 @@ strong {
 }
 
 .like {
-  -webkit-appearance: none;
+  -webkit-appearance: none !important;
   outline: none;
 }
 
 .like::before {
   font-family: "Font Awesome 5 Free";
-  content: "\f005";
+  content: "\f005" !important;
   font-weight: 600;
-  color: transparent;
-  -webkit-text-stroke: 2px var(--primary-text-color);
+  color: transparent !important;
+  -webkit-text-stroke: 2px var(--primary-text-color) !important;
   transition: 0.2s ease-out;
 }
 
 .like:checked::before {
-  color: var(--primary-text-color);
+  color: var(--primary-text-color) !important;
   transition: 0.2s ease-out;
 }
 
@@ -638,7 +658,7 @@ strong {
 
 .common-dropdown::before {
   display: inline-block;
-  content: "\f078";
+  content: "\f078" !important;
   font-family: "Font Awesome 5 Free";
   font-style: normal;
   font-weight: 900;
@@ -774,12 +794,12 @@ textarea {
   width: 500px;
 }
 
-input[type="checkbox"]:not(.dropdown-trigger) {
+input[type="checkbox"] {
   -webkit-appearance: none;
   outline: none;
 }
 
-input[type="checkbox"]:not(.dropdown-trigger):not(.hidden):checked::before {
+input[type="checkbox"]:checked::before {
   content: "\f14a";
   font-family: "Font Awesome 5 Free";
   font-style: normal;
@@ -788,7 +808,7 @@ input[type="checkbox"]:not(.dropdown-trigger):not(.hidden):checked::before {
   font-display: auto;
 }
 
-input[type="checkbox"]:not(.dropdown-trigger):not(.hidden)::before {
+input[type="checkbox"]::before {
   content: "\f0c8";
   font-family: "Font Awesome 5 Free";
   font-style: normal;
@@ -896,18 +916,25 @@ header .container {
 }
 
 .burger-icon::before {
-  content: "\f0c9";
+  content: "\f0c9" !important;
   font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   font-size: 20px;
   color: var(--primary-text-color);
   padding: 10px;
   transition: all 0.1s ease-out 0.4s;
 }
 
+.burger-icon:checked::before {
+  background-color: var(--background);
+  transition: all 0.1s ease;
+}
+
 .burger-menu-bottom {
   right: -8px;
-  width: 100px;
+  width: 120px;
   padding: 5px;
+  margin-top: 20px;
 }
 
 .burger-menu-left {
@@ -916,11 +943,6 @@ header .container {
   margin: 0;
   box-sizing: border-box;
   box-shadow: none !important;
-}
-
-.burger-icon:checked::before {
-  background-color: var(--background);
-  transition: all 0.1s ease;
 }
 
 .header-nav a {
@@ -1090,6 +1112,19 @@ header .container {
   height: 80px;
 }
 
+@media screen and (max-width: 1000px) {
+  .masters-card-min {
+    width: 50px;
+    height: 50px;
+    background: var(--dark-background);
+  }
+
+  .masters-card-min .photo-min {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 /*Articles grid*/
 
 .articles-grid {
@@ -1248,7 +1283,7 @@ header .container {
 }
 
 .topics-grid .small-topic .cards {
-  height: 80px;
+  height: 80px !important;
   justify-content: flex-start;
 }
 
@@ -1344,7 +1379,6 @@ header .container {
 .blog-card {
   width: 100%;
   max-width: 700px;
-
   height: 100%;
   min-height: 80px !important;
   max-height: 400px;
@@ -1381,13 +1415,24 @@ header .container {
   margin: 10px 6px;
 }
 
+@media screen and (max-width: 1000px) {
+  .blog-card .photo-box {
+    display: none;
+  }
+  .blog-card {
+    padding-left: 20px;
+  }
+}
+
 /*Review card grid*/
 
 .review-card {
-  width: 650px;
-  height: 150px;
+  max-width: 650px;
+  width: 100%;
+  min-height: 150px;
   background: var(--light-background);
   padding-top: 20px;
+  text-align: left;
 }
 
 .review-card .avatar {
@@ -1403,6 +1448,17 @@ header .container {
 .review-card .description {
   width: 90%;
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .review-card .description {
+    display: block !important;
+    width: 50%;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    float: right;
+    clear: none;
+  }
 }
 
 .review-card .title {
@@ -1488,11 +1544,14 @@ footer .background {
     border: none;
     width: 60%;
     margin: 0 auto;
+    text-align: left;
   }
   footer .social-nav-container {
     border: none;
     margin: 0 auto;
     float: none;
+    margin-top: -20px;
+    margin-bottom: 20px;
   }
 }
 

@@ -26,9 +26,9 @@ get_header(); ?>
           ?>' alt='<?php echo the_title(); ?>' title='<?php echo the_title(); ?>' />
           </label>
         <div class='master-description'>
-          <div class='background'>
-            <h1  class="h1-small option option-box"
-                style="height: 70px; padding: 7px 18px; margin: 0"
+          <div class='background handheld-fullwidth'>
+            <h1 class="h1-small option option-box"
+                style="height: 70px;padding: 7px 18px; margin: 0"
               > <label
                   for="title"
                   class="additional-text"
@@ -46,7 +46,7 @@ get_header(); ?>
                 /></h1>
           </div>
           <div
-              class="main-text option-box option"
+              class="main-text option-box option handheld-fullwidth"
               style="margin: -10px 0 0 50px; padding: 15px; height: 160px; width: 88%"
             >
               <label for="desc" class="additional-text" style="font-size: 1.5rem;">
